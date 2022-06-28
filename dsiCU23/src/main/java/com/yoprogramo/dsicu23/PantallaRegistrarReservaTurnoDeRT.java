@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
+
 /**
  *
  * 
@@ -25,13 +26,11 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
     private boolean btnConfirmarReserva;
     private boolean btnCancelar;
     private ArrayList <CentroDeInvestigacion> centrosInvestigacion;
-
     
     public ArrayList<CentroDeInvestigacion> getCentrosInvestigacion() {    
-            return centrosInvestigacion;
+        return centrosInvestigacion;
     }
 
-    
     public RecursoTecnologico getRecursoSeleccionado() {    
         return recursoSeleccionado;
     }
@@ -50,15 +49,15 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
     }
 
     public void setBtnOpcionReservarTurnoDeRT(int btnOpcionReservarTurnoDeRT) {
-            this.btnOpcionReservarTurnoDeRT = btnOpcionReservarTurnoDeRT;
+        this.btnOpcionReservarTurnoDeRT = btnOpcionReservarTurnoDeRT;
     }
 
     public String getTipoRecursoSeleccionado() {
-            return tipoRecursoSeleccionado;
+        return tipoRecursoSeleccionado;
     }
 
     public void setTipoRecursoSeleccionado(String tipoRecursoSeleccionado) {
-            this.tipoRecursoSeleccionado = tipoRecursoSeleccionado;
+        this.tipoRecursoSeleccionado = tipoRecursoSeleccionado;
     }
 
     public ArrayList<String> getCmbTiposDeRecursos() {
@@ -69,11 +68,11 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         this.cmbTiposDeRecursos = cmbTiposDeRecursos;
     }      
     public ArrayList<RecursoTecnologico> getListaRT() {
-            return listaRT;
+       return listaRT;
     }
 
     public void setListaRT(ArrayList<RecursoTecnologico> listaRT) {
-            this.listaRT = listaRT;
+        this.listaRT = listaRT;
     }
 
     public ArrayList<Turno> getGrillaTurnos() {
@@ -84,131 +83,120 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         this.grillaTurnos = grillaTurnos;
     }
 
-    
-
     public String getRadioBtnNotificacion() {
-            return radioBtnNotificacion;
-        }
+        return radioBtnNotificacion;
+    }
 
     public void setRadioBtnNotificacion(String radioBtnNotificacion) {
-            this.radioBtnNotificacion = radioBtnNotificacion;
+        this.radioBtnNotificacion = radioBtnNotificacion;
     }
 
     public boolean isBtnConfirmarReserva() {
-            return btnConfirmarReserva;
+        return btnConfirmarReserva;
     }
 
     public void setBtnConfirmarReserva(boolean btnConfirmarReserva) {
-            this.btnConfirmarReserva = btnConfirmarReserva;
+        this.btnConfirmarReserva = btnConfirmarReserva;
     }
 
     public boolean isBtnCancelar() {
-            return btnCancelar;
+        return btnCancelar;
     }
 
     public void setBtnCancelar(boolean btnCancelar) {
-            this.btnCancelar = btnCancelar;
+        this.btnCancelar = btnCancelar;
     }
+    
     /*HACE VISIBLE EL PRIMER FORMULARIO y espera hasta que el usuario haga click, esto no esta bien implementado porq manda a dormir el proceso y deberia esperar hasta q se haga click*/
     public void habilitarPantalla() throws InterruptedException {   
+    
         this.setVisible(true);
+        
         ActionListener click = new ActionListener() {
-            @Override
+        @Override
             public void actionPerformed(ActionEvent e) {
-                btnOpcionReservarTurnoDeRT = 1;
-                
+                btnOpcionReservarTurnoDeRT = 1;     
             }
         };
-        btnOpcionReservar.addActionListener(click);
-        
-        
-          
-            
+        btnOpcionReservar.addActionListener(click);  
     }
         
     public String mostrarTiposDeRecursos(ArrayList <String> cmb) throws InterruptedException{ 
-            /*LA PANTALLA OBTIENE LOS TIPOS DE RECURSOS*/
-            this.setCmbTiposDeRecursos(cmb);
-            /*HABILITA LA SEGUNDA INTERFAZ, LE SETEA UN TAMAÑO DE PANTALLA Y LLENA EL COMBOBOX PARA QUE EL USUARIO PUEDA ELEGIR*/
-            this.interfazTipoRecurso.setVisible(true);
-            interfazTipoRecurso.setLocationRelativeTo(null);
-            interfazTipoRecurso.setBounds(700, 400, 500, 200);
-            for(int i = 0; i < cmb.size();i++){
-                comboBoxTiposRecursos.addItem(cmb.get(i));
-            }
-            
-            
-            ActionListener click = new ActionListener() {
-            @Override
+        
+        /*LA PANTALLA OBTIENE LOS TIPOS DE RECURSOS*/
+        this.setCmbTiposDeRecursos(cmb);
+        
+        /*HABILITA LA SEGUNDA INTERFAZ, LE SETEA UN TAMAÑO DE PANTALLA Y LLENA EL COMBOBOX PARA QUE EL USUARIO PUEDA ELEGIR*/
+        this.interfazTipoRecurso.setVisible(true);
+        interfazTipoRecurso.setLocationRelativeTo(null);
+        interfazTipoRecurso.setBounds(700, 400, 500, 200);
+        for(int i = 0; i < cmb.size();i++){
+            comboBoxTiposRecursos.addItem(cmb.get(i));
+        }
+                
+        ActionListener click = new ActionListener() {
+        @Override
             public void actionPerformed(ActionEvent e) {
+             
                 /*SI ESTA SELECCIONADO UN ELEMENTO DEL COMBOBOX Y SE HACE CLICK EN EL BOTON BUSCAR ENTONCES ESTE DEVUELVE EL TIPO DE RECURSO SELECCIONADO ADEMAS DE SETEARLO EN LA PANTALLA*/
                 if(comboBoxTiposRecursos.getSelectedItem() != null){
-                    tipoRecursoSeleccionado = comboBoxTiposRecursos.getSelectedItem().toString();
-                    
+                    tipoRecursoSeleccionado = comboBoxTiposRecursos.getSelectedItem().toString();         
                 }
-                
             }
-            };
-            btnBuscarXTipo.addActionListener(click);
+        };
+        btnBuscarXTipo.addActionListener(click);
             
-            do{
+        do{
             /*CANTIDAD DE TIEMPO DORMIDO, ESTO SIRVE PARA Q DE TIEMPO PARA ELEGIR LA OPCION Y PASE A LA SIGUIENTE ETAPA*/
-            Thread.sleep(3000);
-            }while (comboBoxTiposRecursos.getSelectedIndex() == -1);
-            /*Cierro el formulario de tipo*/
-            comboBoxTiposRecursos.removeAllItems();
-            interfazTipoRecurso.dispose();
-            return this.tipoRecursoSeleccionado;
-            
-            
-        
+            Thread.sleep(10000);
+        }while (comboBoxTiposRecursos.getSelectedIndex() == -1);
+        /*Cierro el formulario de tipo*/
+        comboBoxTiposRecursos.removeAllItems();
+        interfazTipoRecurso.dispose();
+        return this.tipoRecursoSeleccionado;
     }
+    
     /*Setea el tipo de recurso que este al momento de hacer click en el form como atributo de la pantalla*/
     public void solicitarSeleccionTipoDeRecurso(String a) {
-            this.setTipoRecursoSeleccionado(a);
-            
+        this.setTipoRecursoSeleccionado(a);    
     }
-        /*YA LA TOME CUANDO HICE EL SET EN SOLICITAR SELECCION TIPO...*/
-    public void tomarSeleccionDeTipoDeRecurso(){
-            
-    }
+    
+    /*YA LA TOME CUANDO HICE EL SET EN SOLICITAR SELECCION TIPO...*/
+    public void tomarSeleccionDeTipoDeRecurso(){}
+    
     /*CREA LA INTERFAZ Y LLENA EL PRIMER COMBOBOX CON TODOS LOS CENTROS*/
     public RecursoTecnologico mostrarRTAgrupados(ArrayList<RecursoTecnologico> recursosAll) throws InterruptedException {
+    
         this.setListaRT(recursosAll);
         this.interfazSeleccionRT.setVisible(true);
         interfazSeleccionRT.setBounds(600,300,700,600);
+        
         /*AGREGO LOS CENTROS*/
         for(int i = 0; i < this.centrosInvestigacion.size();i++){
-                if(this.centrosInvestigacion.get(i).tieneAlMenosUnRecurso(this.tipoRecursoSeleccionado) == true){
-                    comboBoxCentros.addItem(this.centrosInvestigacion.get(i).getNombre());
-                    
-                    
-                }
-                
+            
+            if(this.centrosInvestigacion.get(i).tieneAlMenosUnRecurso(this.tipoRecursoSeleccionado) == true){
+               
+                comboBoxCentros.addItem(this.centrosInvestigacion.get(i).getNombre());    
+            }
         }
                
         do{
             /*CANTIDAD DE TIEMPO DORMIDO, ESTO SIRVE PARA Q DE TIEMPO PARA ELEGIR LA OPCION Y PASE A LA SIGUIENTE ETAPA*/
             Thread.sleep(5000);
-            }while (recursoSeleccionado == null);
-        
+        }while (recursoSeleccionado == null);
         
         /*crea la gui y devuelve el rt seleccionado, creo q se tendria q agregar como atributo*/
-        
         return this.recursoSeleccionado;
     }
     
-   
     public PantallaRegistrarReservaTurnoDeRT() {        
+    
         initComponents();
         setLocationRelativeTo(null);/*PARA QUE QUEDE EN EL MEDIO DE LA PANTALLA*/
     }
     
-    
-    
     /*CODIGO QUE TENGA Q VER CON BOTONES DE LA INTERFAZ Y LAS ACCIONES QUE SE EJECUTAN AL PRESIONAR BOTONES*/
 
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -226,14 +214,14 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         tblRT = new javax.swing.JTable();
         jCalendar1 = new com.toedter.calendar.JCalendar();
         turnos = new javax.swing.JComboBox<>();
-        btnCancel = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnOpcionReservar = new javax.swing.JButton();
 
         interfazTipoRecurso.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        interfazTipoRecurso.setTitle("Registrar Reserva Turno RT");
+        interfazTipoRecurso.setTitle("Registrar Reserva Turno de Recurso Tecnológico");
 
-        jLabel2.setText("Seleccione el tipo de recurso que desea reservar:");
+        jLabel2.setText("Seleccionar Tipo de Recurso que desea Reservar:");
 
         btnBuscarXTipo.setText("Buscar");
 
@@ -242,16 +230,15 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         interfazTipoRecursoLayout.setHorizontalGroup(
             interfazTipoRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(interfazTipoRecursoLayout.createSequentialGroup()
-                .addGroup(interfazTipoRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(interfazTipoRecursoLayout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(comboBoxTiposRecursos, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnBuscarXTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(interfazTipoRecursoLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(jLabel2)))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jLabel2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(interfazTipoRecursoLayout.createSequentialGroup()
+                .addContainerGap(115, Short.MAX_VALUE)
+                .addComponent(comboBoxTiposRecursos, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(btnBuscarXTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(90, 90, 90))
         );
         interfazTipoRecursoLayout.setVerticalGroup(
             interfazTipoRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,16 +246,17 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addGroup(interfazTipoRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(comboBoxTiposRecursos, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(btnBuscarXTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(interfazTipoRecursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscarXTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboBoxTiposRecursos))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
+        interfazSeleccionRT.setTitle("Registrar Reserva Turno de Recurso Tecnológico");
         interfazSeleccionRT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         interfazSeleccionRT.setFocusable(false);
 
-        jLabel3.setText("Seleccione el Centro:");
+        jLabel3.setText("Seleccionar Centro:");
 
         comboBoxCentros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,9 +264,9 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Recursos Pertenecientes a ese centro:");
+        jLabel4.setText("Recursos del Centro seleccionado:");
 
-        seleccionarRT.setText("Seleccionar Recurso Tecnologico");
+        seleccionarRT.setText("Seleccionar Recurso Tecnológico");
         seleccionarRT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seleccionarRTActionPerformed(evt);
@@ -311,12 +299,7 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         tblRT.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jScrollPane2.setViewportView(tblRT);
 
-        btnCancel.setText("Cancelar");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
-            }
-        });
+        jLabel5.setText("Seleccionar Turno del Recurso a Reservar:");
 
         javax.swing.GroupLayout interfazSeleccionRTLayout = new javax.swing.GroupLayout(interfazSeleccionRT.getContentPane());
         interfazSeleccionRT.getContentPane().setLayout(interfazSeleccionRTLayout);
@@ -330,57 +313,63 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
                     .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
                         .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                .addGap(47, 47, 47)
+                                .addGap(16, 16, 16)
                                 .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
-                                    .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)))
+                                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addGap(31, 31, 31)
+                                        .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                .addGap(204, 204, 204)
-                                .addComponent(seleccionarRT)))
+                                .addGap(21, 21, 21)
+                                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(62, 62, 62)
+                                        .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(75, 75, 75))
-                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(239, 239, 239)
+                .addComponent(seleccionarRT)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         interfazSeleccionRTLayout.setVerticalGroup(
             interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(seleccionarRT)
                 .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(seleccionarRT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCalendar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SeCyT - Gestión de Recursos Tecnológicos de Centro de Investigación");
         setName("menuOpciones"); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setText("Seleccionar opción:");
 
         btnOpcionReservar.setText("Registrar Reserva Turno De Recurso Tecnologico");
+        btnOpcionReservar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnOpcionReservarMouseClicked(evt);
+            }
+        });
         btnOpcionReservar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clickBtnOpcion(evt);
@@ -394,44 +383,46 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
+                        .addGap(184, 184, 184)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addGap(125, 125, 125)
                         .addComponent(btnOpcionReservar)))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnOpcionReservar)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void clickBtnOpcion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clickBtnOpcion
+        
         this.setBtnOpcionReservarTurnoDeRT(1);        
-        this.dispose();
-        
-        
+        this.dispose();        
     }//GEN-LAST:event_clickBtnOpcion
+    
     /*LLENA LA TABLA CON LOS RECURSOS SEGUN EL CENTRO SELECCIONADO
     */
     private void comboBoxCentrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxCentrosActionPerformed
-             
-        DefaultTableModel modelo=(DefaultTableModel) tblRT.getModel();
-            int filas=tblRT.getRowCount();
-            for (int i = 0;filas>i; i++) {
-                modelo.removeRow(0);
-            }
         
+        DefaultTableModel modelo=(DefaultTableModel) tblRT.getModel();
+        int filas=tblRT.getRowCount();
+        for (int i = 0;filas>i; i++) {
+            modelo.removeRow(0);
+        }
+ 
         if(comboBoxCentros.getSelectedIndex() != -1){
+            
             for(int i = 0; i < listaRT.size();i++){
+                
                 if(listaRT.get(i).getCentro().getNombre().equals(this.comboBoxCentros.getSelectedItem())){  
                     Object [] fila = new Object[4];
                     fila [0] = listaRT.get(i).getNumeroRT().toString();
@@ -439,49 +430,40 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
                     fila [2] = listaRT.get(i).getModelo().getNombre();
                     fila [3] = listaRT.get(i).getCambioEstado().esUltimoCambioEstadoRT();
                     modelo.addRow(fila);
-                    
-                    
-            
                 }
             }
-        
-            
         } 
     }//GEN-LAST:event_comboBoxCentrosActionPerformed
+
     /*AL HACER CLICK EN EL BOTON RECUPERA EL SELECCIONADO Y LO SETEA EN LA PANTALLA COMO RECURSO SELECCIONADO*/
     private void seleccionarRTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleccionarRTActionPerformed
         
         int filaseleccionada = tblRT.getSelectedRow();
         if (filaseleccionada == -1){
-                JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila.");
-            } else {
-                    String a = tblRT.getValueAt(filaseleccionada, 0).toString();
-                    
-                    for(int i = 0;i<this.listaRT.size();i++){
-                        if(this.listaRT.get(i).getNumeroRT().equals(Integer.parseInt(a))){                                
-                            this.setRecursoSeleccionado(this.listaRT.get(i));
-                        }
-                    }
+                JOptionPane.showMessageDialog(null, "Seleccione un Recurso Tecnológico.");
+            } 
+        else {
+            String a = tblRT.getValueAt(filaseleccionada, 0).toString();
+
+            for(int i = 0;i<this.listaRT.size();i++){
+                if(this.listaRT.get(i).getNumeroRT().equals(Integer.parseInt(a))){                                
+                    this.setRecursoSeleccionado(this.listaRT.get(i));
+                }
             }
-        
-        
+        }
     }//GEN-LAST:event_seleccionarRTActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnCancelActionPerformed
+    private void btnOpcionReservarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpcionReservarMouseClicked
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btnOpcionReservarMouseClicked
     
     public void mostrarTurnos(ArrayList<Turno> turnoDelRT) {
+        
         for(int i = 0;i<turnoDelRT.size();i++){
             turnos.addItem(turnoDelRT.get(i).getFechaHoraInicio().toString()+"-"+turnoDelRT.get(i).getFechaHoraFin().toString());
         }
     }
-   
-    
-  
-    
-    
-    
     
     public static void main(String args[]) {
         
@@ -489,14 +471,11 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
             public void run() {
                 new PantallaRegistrarReservaTurnoDeRT().setVisible(true);
             }
-        });
-        
-        
+        });  
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarXTipo;
-    private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnOpcionReservar;
     private javax.swing.JComboBox<String> comboBoxCentros;
     private javax.swing.JComboBox<String> comboBoxTiposRecursos;
@@ -507,11 +486,10 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton seleccionarRT;
     private javax.swing.JTable tblRT;
     private javax.swing.JComboBox<String> turnos;
     // End of variables declaration//GEN-END:variables
-
-    
 }

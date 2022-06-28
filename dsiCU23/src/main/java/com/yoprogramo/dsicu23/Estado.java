@@ -11,7 +11,6 @@ public class Estado {
     private Boolean esCancelable;
     
     /*Definicion del constructor*/
-
     public Estado(String nombre, String descripcion, String ambito, Boolean esReservable, Boolean esCancelable) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -61,12 +60,13 @@ public class Estado {
     public void setEsCancelable(Boolean esCancelable) {
         this.esCancelable = esCancelable;
     }
+    
     /*Si el ambito del estado es recurso tecnologico devuelve un true, caso contrario un false*/
     public Boolean esAmbitoRecursoTecnologico(){
+    
         if(this.getAmbito() == "Recurso Tecnologico"){
             return true;
         }
         return false;
     }
-    
 }

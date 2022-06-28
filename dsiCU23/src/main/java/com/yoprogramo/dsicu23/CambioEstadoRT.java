@@ -3,17 +3,13 @@ package com.yoprogramo.dsicu23;
 
 import java.util.Date;
 
-
 public class CambioEstadoRT {
+   
     private Date fechaHoraDesde;
-    private Date fechaHoraHasta;
-    
-    
+    private Date fechaHoraHasta; 
     private Estado estado;
     
-    
     /* Constructor de la clase*/
-
     public CambioEstadoRT(Date fechaHoraDesde, Date fechaHoraHasta, Estado estado) {
         this.fechaHoraDesde = fechaHoraDesde;
         this.fechaHoraHasta = fechaHoraHasta;
@@ -41,15 +37,9 @@ public class CambioEstadoRT {
         String a = this.estado.getNombre();
         return a;
     }
-    
-    /*Deberia ser la misma clase cambio de turno???*/
-    public void esUltimoCambioEstadoTurno(){
-        
-    }
 
     public boolean esReservable() {
         boolean esReservable = this.estado.getEsReservable();
         return esReservable;
     }
-    
 }

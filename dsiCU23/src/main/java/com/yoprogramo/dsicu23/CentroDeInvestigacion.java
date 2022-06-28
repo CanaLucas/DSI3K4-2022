@@ -23,14 +23,10 @@ public class CentroDeInvestigacion {
     private Integer tiempoAntelacionReserva; /*Fijarse el tipo de dato q es*/
     private Date fechaBaja;
     private String motivoBaja;
-    
     private ArrayList<RecursoTecnologico> recursosTecnologicos; /*Referencias a otras clases*/
     private ArrayList<AsignacionCientificoDelCI> asignacionCientifico;
     
-    
-    
     /* Constructor de la clase*/
-
     public CentroDeInvestigacion(String nombre, String sigla, String direccion, String edificio, String piso, String coordenadas, String telefonosContacto, String correoElectronico, Integer numeroResolucionCreacion, Date fechaResolucionCreacion, String reglamento, String caracteristicasGenerales, Date fechaAlta, Integer tiempoAntelacionReserva, Date fechaBaja, String motivoBaja, ArrayList<RecursoTecnologico> recursosTecnologicos, ArrayList<AsignacionCientificoDelCI> asignacionCientifico) {
         this.nombre = nombre;
         this.sigla = sigla;
@@ -51,14 +47,7 @@ public class CentroDeInvestigacion {
         this.recursosTecnologicos = recursosTecnologicos;
         this.asignacionCientifico = asignacionCientifico;
     }
-
-    
-
-    
-    
-   
-    
-    
+ 
     /*Metodos de la clase*/
 
     public String getNombre() {
@@ -205,30 +194,24 @@ public class CentroDeInvestigacion {
         this.asignacionCientifico = asignacionCientifico;
     }
    public boolean tieneAlMenosUnRecurso(String tipo){
+       
        for(int i = 0;i<this.recursosTecnologicos.size();i++){
-           if(this.getNombre().equals(this.recursosTecnologicos.get(i).getCentro().getNombre()) && (this.recursosTecnologicos.get(i).getTipoRecurso().getNombre().equals(tipo) || tipo.equals("TODAS"))){
-               return true;
-               
-           }
            
+           if(this.getNombre() == this.recursosTecnologicos.get(i).getCentro().getNombre() && this.recursosTecnologicos.get(i).getTipoRecurso().getNombre() == tipo){
+               return true;    
+           }
        }
        return false;
    }
+   
    public String MisCientificosActivos(PersonalCientifico a){
+       
        for(int i = 0;i<this.asignacionCientifico.size();i++){
+           
            if(this.asignacionCientifico.get(i).getPersonalCientifico().equals(a)){
-               return this.asignacionCientifico.get(i).esCientificoActivo();
-           
+               return this.asignacionCientifico.get(i).esCientificoActivo();    
            }
-           
        }
        return "cientifico no encontrado";
-       
-       
-   }
-    
-
-    
-    
-    
+   } 
 }
