@@ -212,9 +212,16 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         seleccionarRT = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblRT = new javax.swing.JTable();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         turnos = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
+        calendarTurnos = new com.toedter.calendar.JDateChooser();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblTurnos = new javax.swing.JTable();
+        jLabel6 = new javax.swing.JLabel();
+        cbxMail = new javax.swing.JCheckBox();
+        cbxWhatsapp = new javax.swing.JCheckBox();
+        btnConfirmar = new javax.swing.JButton();
+        btnCancelarr = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnOpcionReservar = new javax.swing.JButton();
 
@@ -301,39 +308,93 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
 
         jLabel5.setText("Seleccionar Turno del Recurso a Reservar:");
 
+        calendarTurnos.setMinSelectableDate(new java.util.Date(-62135755114000L));
+
+        tblTurnos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Turno", "Estado"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblTurnos);
+
+        jLabel6.setText("Seleccione Tipo de Notificación:");
+
+        cbxMail.setSelected(true);
+        cbxMail.setText("Mail");
+        cbxMail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxMailActionPerformed(evt);
+            }
+        });
+
+        cbxWhatsapp.setText("Whatsapp");
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.setEnabled(false);
+
+        btnCancelarr.setText("Cancelar");
+        btnCancelarr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarrActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout interfazSeleccionRTLayout = new javax.swing.GroupLayout(interfazSeleccionRT.getContentPane());
         interfazSeleccionRT.getContentPane().setLayout(interfazSeleccionRTLayout);
         interfazSeleccionRTLayout.setHorizontalGroup(
             interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                        .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(31, 31, 31)
-                                        .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(62, 62, 62)
-                                        .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxMail)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxWhatsapp)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnConfirmar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCancelarr)))
                 .addContainerGap())
             .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
-                .addGap(239, 239, 239)
-                .addComponent(seleccionarRT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(calendarTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                        .addGap(239, 239, 239)
+                        .addComponent(seleccionarRT))
+                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(31, 31, 31)
+                                .addComponent(comboBoxCentros, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         interfazSeleccionRTLayout.setVerticalGroup(
             interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,16 +406,31 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(seleccionarRT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(calendarTurnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(turnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(interfazSeleccionRTLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(cbxMail)
+                            .addComponent(cbxWhatsapp))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, interfazSeleccionRTLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addGroup(interfazSeleccionRTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnConfirmar)
+                            .addComponent(btnCancelarr))))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -457,14 +533,27 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_btnOpcionReservarMouseClicked
+
+    private void cbxMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxMailActionPerformed
+
+    private void btnCancelarrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarrActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(interfazSeleccionRT, "¿Esta seguro que desea salir de la reserva?", "Informacón",2);
+    }//GEN-LAST:event_btnCancelarrActionPerformed
     
     public void mostrarTurnos(ArrayList<Turno> turnoDelRT) {
         
         for(int i = 0;i<turnoDelRT.size();i++){
             turnos.addItem(turnoDelRT.get(i).getFechaHoraInicio().toString()+"-"+turnoDelRT.get(i).getFechaHoraFin().toString());
         }
+        
     }
     
+    public void setearCalendario(Date fecha) {
+        calendarTurnos.setMinSelectableDate(fecha);
+    }
     public static void main(String args[]) {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -476,20 +565,27 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarXTipo;
+    private javax.swing.JButton btnCancelarr;
+    private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnOpcionReservar;
+    private com.toedter.calendar.JDateChooser calendarTurnos;
+    private javax.swing.JCheckBox cbxMail;
+    private javax.swing.JCheckBox cbxWhatsapp;
     private javax.swing.JComboBox<String> comboBoxCentros;
     private javax.swing.JComboBox<String> comboBoxTiposRecursos;
     private javax.swing.JFrame interfazSeleccionRT;
     private javax.swing.JFrame interfazTipoRecurso;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton seleccionarRT;
     private javax.swing.JTable tblRT;
+    private javax.swing.JTable tblTurnos;
     private javax.swing.JComboBox<String> turnos;
     // End of variables declaration//GEN-END:variables
 }

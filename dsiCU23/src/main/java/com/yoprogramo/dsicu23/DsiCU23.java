@@ -29,6 +29,236 @@ public class DsiCU23 {
         arrayTipos[4] = tRTEqCompu;
         arrayTipos[5] = tRTCamTer;
         
+       /*Creando Turnos y sus cambios de estados */
+        ArrayList <Turno> turnosRTMicro = new ArrayList <>();
+        ArrayList <Turno> turnosRTBalan = new ArrayList <>();
+        ArrayList <Turno> turnosRT4 = new ArrayList <>();
+        ArrayList <Turno> turnosRT5 = new ArrayList <>();
+        ArrayList <Turno> turnosRT8 = new ArrayList <>();
+        ArrayList <Turno> turnosRT9 = new ArrayList <>();
+        ArrayList <Turno> turnosRT12 = new ArrayList <>();
+        ArrayList <Turno> turnosRT14 = new ArrayList <>();
+        ArrayList <Turno> turnosRT15 = new ArrayList <>();
+        ArrayList <Turno> turnosRT18 = new ArrayList <>();
+        ArrayList <Turno> turnosRT19 = new ArrayList <>();
+        ArrayList <Turno> turnosRT20 = new ArrayList <>();
+        
+        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",false,true);
+        Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",false,true);
+        Estado estadoTurnoReser = new Estado("Reservado","","Turno",false,true);
+       
+        Date desdeCET = new Date(122,6,28,0,0);
+        
+        CambioEstadoTurno cambioTurnoDispo = new CambioEstadoTurno(desdeCET,null,estadoTurnoDispo);
+        CambioEstadoTurno cambioTurnoPteConf = new CambioEstadoTurno(desdeCET,null,estadoTurnoPteConf);
+        CambioEstadoTurno cambioTurnoReser = new CambioEstadoTurno(desdeCET,null,estadoTurnoReser);
+       
+        ArrayList <CambioEstadoTurno> cETDispo = new ArrayList <>();
+        ArrayList <CambioEstadoTurno> cETPteConf = new ArrayList <>();
+        ArrayList <CambioEstadoTurno> cETReser = new ArrayList <>();
+        
+        cETDispo.add(cambioTurnoDispo);
+        cETPteConf.add(cambioTurnoPteConf);
+        cETReser.add(cambioTurnoReser);
+       
+       //definicion de Turnos desde el 4/7/2022 al 8/7/2022
+       Date fechaGenTodosTurnos = new Date(122,6,27,8,0,0);
+       // Turnos para RT tipo Microscopios
+        Date tMLuIni1 = new Date(122,7,4,8,0,0);
+        Date tMLuFin1 = new Date(122,7,4,12,0,0); 
+        Date tMLuIni2 = new Date(122,7,4,14,0,0);
+        Date tMLuFin2 = new Date(122,7,4,18,0,0); 
+        Date tMMaIni1 = new Date(122,7,5,8,0,0);
+        Date tMMaFin1 = new Date(122,7,5,12,0,0); 
+        Date tMMaIni2 = new Date(122,7,5,14,0,0);
+        Date tMMaFin2 = new Date(122,7,5,18,0,0);
+        Date tMMiIni1 = new Date(122,7,6,8,0,0);
+        Date tMMiFin1 = new Date(122,7,6,12,0,0); 
+        Date tMMiIni2 = new Date(122,7,6,14,0,0);
+        Date tMMiFin2 = new Date(122,7,6,18,0,0);
+        Date tMJuIni1 = new Date(122,7,7,8,0,0);
+        Date tMJuFin1 = new Date(122,7,7,12,0,0); 
+        Date tMJuIni2 = new Date(122,7,7,14,0,0);
+        Date tMJuFin2 = new Date(122,7,7,18,0,0);
+        Date tMViIni1 = new Date(122,7,8,8,0,0);
+        Date tMViFin1 = new Date(122,7,8,12,0,0); 
+        Date tMViIni2 = new Date(122,7,8,14,0,0);
+        Date tMViFin2 = new Date(122,7,8,18,0,0);
+        
+        Turno turnoMA1 = new Turno(fechaGenTodosTurnos,"Lunes",tMLuIni1,tMLuFin1,cETReser);
+        Turno turnoMB1 = new Turno(fechaGenTodosTurnos,"Martes",tMMaIni1,tMMaFin1,cETDispo);
+        Turno turnoMC1 = new Turno(fechaGenTodosTurnos,"Miercoles",tMMiIni1,tMMiFin1,cETDispo);
+        Turno turnoMD1 = new Turno(fechaGenTodosTurnos,"Jueves",tMJuIni1,tMJuFin1,cETDispo);
+        Turno turnoME1 = new Turno(fechaGenTodosTurnos,"Viernes",tMViIni1,tMViFin1,cETPteConf);
+        Turno turnoMA2 = new Turno(fechaGenTodosTurnos,"Lunes",tMLuIni2,tMLuFin2,cETReser);
+        Turno turnoMB2 = new Turno(fechaGenTodosTurnos,"Martes",tMMaIni2,tMMaFin2,cETPteConf);
+        Turno turnoMC2 = new Turno(fechaGenTodosTurnos,"Miercoles",tMMiIni2,tMMiFin2,cETReser);
+        Turno turnoMD2 = new Turno(fechaGenTodosTurnos,"Jueves",tMJuIni2,tMJuFin2,cETDispo);
+        Turno turnoME2 = new Turno(fechaGenTodosTurnos,"Viernes",tMViIni2,tMViFin2,cETDispo);
+        
+        turnosRTMicro.add(turnoMA1);
+        turnosRTMicro.add(turnoMA2);
+        turnosRTMicro.add(turnoMB1);
+        turnosRTMicro.add(turnoMB2);
+        turnosRTMicro.add(turnoMC1);
+        turnosRTMicro.add(turnoMC2);
+        turnosRTMicro.add(turnoMD1);
+        turnosRTMicro.add(turnoMD2);
+        turnosRTMicro.add(turnoME1);
+        turnosRTMicro.add(turnoME2);
+        
+       // Turnos para RT tipo Resonador
+        Date tRLuIni = new Date(122,7,4,8,0,0);
+        Date tRLuFin = new Date(122,7,4,18,0,0); 
+        Date tRMaIni = new Date(122,7,5,8,0,0);
+        Date tRMaFin = new Date(122,7,5,18,0,0); 
+        Date tRMiIni = new Date(122,7,6,8,0,0);
+        Date tRMiFin = new Date(122,7,6,18,0,0); 
+        Date tRJuIni = new Date(122,7,7,8,0,0);
+        Date tRJuFin = new Date(122,7,7,18,0,0); 
+        Date tRViIni = new Date(122,7,8,8,0,0);
+        Date tRViFin = new Date(122,7,8,18,0,0);
+        
+        Turno turnoRA = new Turno(fechaGenTodosTurnos,"Lunes",tRLuIni,tRLuFin,cETReser);
+        Turno turnoRB = new Turno(fechaGenTodosTurnos,"Martes",tRMaIni,tRMaFin,cETReser);
+        Turno turnoRC = new Turno(fechaGenTodosTurnos,"Miercoles",tRMiIni,tRMiFin,cETReser);
+        Turno turnoRD = new Turno(fechaGenTodosTurnos,"Jueves",tRJuIni,tRJuFin,cETDispo);
+        Turno turnoRE = new Turno(fechaGenTodosTurnos,"Viernes",tRViIni,tRViFin,cETDispo);
+        
+        turnosRT4.add(turnoRA);
+        turnosRT4.add(turnoRB);
+        turnosRT4.add(turnoRC);
+        turnosRT4.add(turnoRD);
+        turnosRT4.add(turnoRE);
+        turnosRT8.add(turnoRA);
+        turnosRT8.add(turnoRB);
+        turnosRT8.add(turnoRC);
+        turnosRT8.add(turnoRD);
+        turnosRT8.add(turnoRE);
+        turnosRT14.add(turnoRA);
+        turnosRT14.add(turnoRB);
+        turnosRT14.add(turnoRC);
+        turnosRT14.add(turnoRD);
+        turnosRT14.add(turnoRE);
+        turnosRT18.add(turnoRA);
+        turnosRT18.add(turnoRB);
+        turnosRT18.add(turnoRC);
+        turnosRT18.add(turnoRD);
+        turnosRT18.add(turnoRE);
+        turnosRT19.add(turnoRA);
+        turnosRT19.add(turnoRB);
+        turnosRT19.add(turnoRC);
+        turnosRT19.add(turnoRD);
+        turnosRT19.add(turnoRE);
+        
+       // Turnos para RT tipo Camara Termica
+        Date tCTLuIni = new Date(122,7,4,8,0,0);
+        Date tCTLuFin = new Date(122,7,4,18,0,0); 
+        Date tCTMaIni = new Date(122,7,5,8,0,0);
+        Date tCTMaFin = new Date(122,7,5,18,0,0); 
+        Date tCTMiIni = new Date(122,7,6,8,0,0);
+        Date tCTMiFin = new Date(122,7,6,18,0,0); 
+        Date tCTJuIni = new Date(122,7,7,8,0,0);
+        Date tCTJuFin = new Date(122,7,7,18,0,0); 
+        Date tCTViIni = new Date(122,7,8,8,0,0);
+        Date tCTViFin = new Date(122,7,8,18,0,0); 
+       
+        Turno turnoCTA = new Turno(fechaGenTodosTurnos,"Lunes",tCTLuIni,tCTLuFin,cETDispo);
+        Turno turnoCTB = new Turno(fechaGenTodosTurnos,"Martes",tCTMaIni,tCTMaFin,cETReser);
+        Turno turnoCTC = new Turno(fechaGenTodosTurnos,"Miercoles",tCTMiIni,tCTMiFin,cETReser);
+        Turno turnoCTD = new Turno(fechaGenTodosTurnos,"Jueves",tCTJuIni,tCTJuFin,cETPteConf);
+        Turno turnoCTE = new Turno(fechaGenTodosTurnos,"Viernes",tCTViIni,tCTViFin,cETDispo);
+        
+        turnosRT5.add(turnoCTA);
+        turnosRT5.add(turnoCTB);
+        turnosRT5.add(turnoCTC);
+        turnosRT5.add(turnoCTD);
+        turnosRT5.add(turnoCTE);
+        turnosRT12.add(turnoCTA);
+        turnosRT12.add(turnoCTB);
+        turnosRT12.add(turnoCTC);
+        turnosRT12.add(turnoCTD);
+        turnosRT12.add(turnoCTE);
+        turnosRT20.add(turnoCTA);
+        turnosRT20.add(turnoCTB);
+        turnosRT20.add(turnoCTC);
+        turnosRT20.add(turnoCTD);
+        turnosRT20.add(turnoCTE);
+        
+       // Turnos para RT tipo Balanza
+        Date tBLuIni1 = new Date(122,7,4,8,0,0);
+        Date tBLuFin1 = new Date(122,7,4,12,0,0); 
+        Date tBLuIni2 = new Date(122,7,4,14,0,0);
+        Date tBLuFin2 = new Date(122,7,4,18,0,0); 
+        Date tBMaIni1 = new Date(122,7,5,8,0,0);
+        Date tBMaFin1 = new Date(122,7,5,12,0,0); 
+        Date tBMaIni2 = new Date(122,7,5,14,0,0);
+        Date tBMaFin2 = new Date(122,7,5,18,0,0);
+        Date tBMiIni1 = new Date(122,7,6,8,0,0);
+        Date tBMiFin1 = new Date(122,7,6,12,0,0); 
+        Date tBMiIni2 = new Date(122,7,6,14,0,0);
+        Date tBMiFin2 = new Date(122,7,6,18,0,0);
+        Date tBJuIni1 = new Date(122,7,7,8,0,0);
+        Date tBJuFin1 = new Date(122,7,7,12,0,0); 
+        Date tBJuIni2 = new Date(122,7,7,14,0,0);
+        Date tBJuFin2 = new Date(122,7,7,18,0,0);
+        Date tBViIni1 = new Date(122,7,8,8,0,0);
+        Date tBViFin1 = new Date(122,7,8,12,0,0); 
+        Date tBViIni2 = new Date(122,7,8,14,0,0);
+        Date tBViFin2 = new Date(122,7,8,18,0,0); 
+       
+        Turno turnoBA1 = new Turno(fechaGenTodosTurnos,"Lunes",tBLuIni1,tBLuFin1,cETReser);
+        Turno turnoBB1 = new Turno(fechaGenTodosTurnos,"Martes",tBMaIni1,tBMaFin1,cETDispo);
+        Turno turnoBC1 = new Turno(fechaGenTodosTurnos,"Miercoles",tBMiIni1,tBMiFin1,cETReser);
+        Turno turnoBD1 = new Turno(fechaGenTodosTurnos,"Jueves",tBJuIni1,tBJuFin1,cETPteConf);
+        Turno turnoBE1 = new Turno(fechaGenTodosTurnos,"Viernes",tBViIni1,tBViFin1,cETPteConf);
+        Turno turnoBA2 = new Turno(fechaGenTodosTurnos,"Lunes",tBLuIni2,tBLuFin2,cETDispo);
+        Turno turnoBB2 = new Turno(fechaGenTodosTurnos,"Martes",tBMaIni2,tBMaFin2,cETPteConf);
+        Turno turnoBC2 = new Turno(fechaGenTodosTurnos,"Miercoles",tBMiIni2,tBMiFin2,cETDispo);
+        Turno turnoBD2 = new Turno(fechaGenTodosTurnos,"Jueves",tBJuIni2,tBJuFin2,cETDispo);
+        Turno turnoBE2 = new Turno(fechaGenTodosTurnos,"Viernes",tBViIni2,tBViFin2,cETDispo);
+        
+        turnosRTBalan.add(turnoBA1);
+        turnosRTBalan.add(turnoBA2);
+        turnosRTBalan.add(turnoBB1);
+        turnosRTBalan.add(turnoBB2);
+        turnosRTBalan.add(turnoBC1);
+        turnosRTBalan.add(turnoBC2);
+        turnosRTBalan.add(turnoBD1);
+        turnosRTBalan.add(turnoBD2);
+        turnosRTBalan.add(turnoBE1);
+        turnosRTBalan.add(turnoBE2);
+        
+       // Turnos para RT tipo Equipo de Computo
+        Date tECLuIni = new Date(122,7,4,8,0,0);
+        Date tECLuFin = new Date(122,7,4,18,0,0); 
+        Date tECMaIni = new Date(122,7,5,8,0,0);
+        Date tECMaFin = new Date(122,7,5,18,0,0); 
+        Date tECMiIni = new Date(122,7,6,8,0,0);
+        Date tECMiFin = new Date(122,7,6,18,0,0); 
+        Date tECJuIni = new Date(122,7,7,8,0,0);
+        Date tECJuFin = new Date(122,7,7,18,0,0); 
+        Date tECViIni = new Date(122,7,8,8,0,0);
+        Date tECViFin = new Date(122,7,8,18,0,0); 
+       
+        Turno turnoECA = new Turno(fechaGenTodosTurnos,"Lunes",tECLuIni,tECLuFin,cETDispo);
+        Turno turnoECB = new Turno(fechaGenTodosTurnos,"Martes",tECMaIni,tECMaFin,cETPteConf);
+        Turno turnoECC = new Turno(fechaGenTodosTurnos,"Miercoles",tECMiIni,tECMiFin,cETReser);
+        Turno turnoECD = new Turno(fechaGenTodosTurnos,"Jueves",tECJuIni,tECJuFin,cETDispo);
+        Turno turnoECE = new Turno(fechaGenTodosTurnos,"Viernes",tECViIni,tECViFin,cETDispo);
+        
+        turnosRT9.add(turnoECA);
+        turnosRT9.add(turnoECB);
+        turnosRT9.add(turnoECC);
+        turnosRT9.add(turnoECD);
+        turnosRT9.add(turnoECE);
+
+        turnosRT15.add(turnoECA);
+        turnosRT15.add(turnoECB);
+        turnosRT15.add(turnoECC);
+        turnosRT15.add(turnoECD);
+        turnosRT15.add(turnoECE);
+        
        /*Creando las relaciones del recurso con un estado */
         Estado estadoDispo = new Estado("Disponible","","Recurso Tecnologico",true,false);
         Estado estadoMante = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
@@ -39,6 +269,8 @@ public class DsiCU23 {
         
         Date desde = new Date(122,6,22,0,0);
         Date hasta = new Date(122,6,30,0,0);
+        // hasta de los cambiosde estados de RT Tendrian q ser null ya que se suòne que estamos 
+        // definiendo los ultimos estados que tienen los RT
         
         CambioEstadoRT cambioE1 = new CambioEstadoRT(desde,hasta,estadoDispo);
         CambioEstadoRT cambioE2 = new CambioEstadoRT(desde,hasta,estadoMante);
@@ -73,26 +305,26 @@ public class DsiCU23 {
         centrosArray.add(centroSpace);
         
        /*Creando RTs */
-        RecursoTecnologico rt1 = new RecursoTecnologico(1,null,null,null,null,null,modelShi,tRTMicro,cambioE1,null,centroSern);
-        RecursoTecnologico rt2 = new RecursoTecnologico(2,null,null,null,null,null,modelNikon,tRTMicro,cambioE2,null, centroSern);        
-        RecursoTecnologico rt3 = new RecursoTecnologico(3,null,null,null,null,null,modelGenElec,tRTMicro,cambioE3,null, centroNasa);
-        RecursoTecnologico rt4 = new RecursoTecnologico(4,null,null,null,null,null,modelNikon,tRTResona,cambioE4,null,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,null,centroSpace); 
-        RecursoTecnologico rt6 = new RecursoTecnologico(6,null,null,null,null,null,modelGenElec,tRTMicro,cambioE1,null,centroSern);
+        RecursoTecnologico rt1 = new RecursoTecnologico(1,null,null,null,null,null,modelShi,tRTMicro,cambioE1,turnosRTMicro,centroSern);
+        RecursoTecnologico rt2 = new RecursoTecnologico(2,null,null,null,null,null,modelNikon,tRTMicro,cambioE2,turnosRTMicro,centroSern);        
+        RecursoTecnologico rt3 = new RecursoTecnologico(3,null,null,null,null,null,modelGenElec,tRTMicro,cambioE3,turnosRTMicro,centroNasa);
+        RecursoTecnologico rt4 = new RecursoTecnologico(4,null,null,null,null,null,modelNikon,tRTResona,cambioE4,turnosRT4,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,turnosRT5,centroSpace); 
+        RecursoTecnologico rt6 = new RecursoTecnologico(6,null,null,null,null,null,modelGenElec,tRTMicro,cambioE1,turnosRTMicro,centroSern);
         RecursoTecnologico rt7 = new RecursoTecnologico(7,null,null,null,null,null,modelSie,tRTBalanza,cambioE3,null,centroNasa);
-        RecursoTecnologico rt8 = new RecursoTecnologico(8,null,null,null,null,null,modelSie,tRTResona,cambioE3,null,centroSpace);
-        RecursoTecnologico rt9 = new RecursoTecnologico(9,null,null,null,null,null,modelShi,tRTEqCompu,cambioE1,null,centroNasa);
-        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelSie,tRTMicro,cambioE1,null,centroNasa);
-        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,cambioE6,null,centroSern);
-        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,cambioE2,null, centroSern);        
-        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,cambioE6,null, centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,cambioE4,null,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,cambioE5,null,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,cambioE2,null,centroSern);
+        RecursoTecnologico rt8 = new RecursoTecnologico(8,null,null,null,null,null,modelSie,tRTResona,cambioE3,turnosRT8,centroSpace);
+        RecursoTecnologico rt9 = new RecursoTecnologico(9,null,null,null,null,null,modelShi,tRTEqCompu,cambioE1,turnosRT9,centroNasa);
+        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelSie,tRTMicro,cambioE1,turnosRTMicro,centroNasa);
+        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,cambioE6,turnosRTMicro,centroSern);
+        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,cambioE2,turnosRT12, centroSern);        
+        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,cambioE6,turnosRTMicro, centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,cambioE4,turnosRT14,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,cambioE5,turnosRT15,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,cambioE2,turnosRTMicro,centroSern);
         RecursoTecnologico rt17 = new RecursoTecnologico(17,null,null,null,null,null,modelGramPre,tRTBalanza,cambioE3,null,centroNasa);
-        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,cambioE1,null,centroSpace);
-        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,cambioE1,null,centroNasa);
-        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,null,centroNasa);
+        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,cambioE1,turnosRT18,centroSpace);
+        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,cambioE1,turnosRT19,centroNasa);
+        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,turnosRT20,centroNasa);
         
        /*Creando relacion RTs con Centros */
         ArrayList <RecursoTecnologico> rtCentroSern= new ArrayList<>();
@@ -164,51 +396,7 @@ public class DsiCU23 {
         PersonalCientifico cientifico2 = new PersonalCientifico(2,"Alfred","Lord",236547891,"alfredlord@gmail.com","eljefe@gmail.com",351351232);
         PersonalCientifico cientifico3 = new PersonalCientifico(3,"Thomas","Wayne",31394839,"thomaswayne@gmail.com","iamjoker@gmail.com",35145823);
         PersonalCientifico cientifico4 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
-        
-       /*Creando Turnos y sus cambios de estados */
-        ArrayList <Turno> turnos = new ArrayList <>();
-        ArrayList <CambioEstadoTurno> cambioEstadoturnos = new ArrayList <>();
-        ArrayList <CambioEstadoTurno> cambioEstadoturnos2 = new ArrayList <>();
-        ArrayList <CambioEstadoTurno> cambioEstadoturnos3 = new ArrayList <>();
       
-        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",false,true);
-        Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",false,true);
-        Estado estadoTurnoReser = new Estado("Reservado","","Turno",false,true);
-       
-        CambioEstadoTurno cambioTurno1 = new CambioEstadoTurno(desde,hasta,estadoTurnoDispo);
-        CambioEstadoTurno cambioTurno2 = new CambioEstadoTurno(desde,hasta,estadoTurnoPteConf);
-        CambioEstadoTurno cambioTurno3 = new CambioEstadoTurno(desde,hasta,estadoTurnoReser);
-       
-        cambioEstadoturnos.add(cambioTurno1);
-        cambioEstadoturnos2.add(cambioTurno2);
-        cambioEstadoturnos3.add(cambioTurno3);
-       
-        Date horajunio1ini = new Date(122,6,28,10,0,0); /*disponible 1 julio*/
-        Date horajunio2ini = new Date(122,6,30,14,0,0); 
-        Date horajunio3ini = new Date(122,6,29,15,0,0); 
-       
-        Date horajunio1fin = new Date(122,7,2,10,0,0); /*disponible 1 julio*/
-        Date horajunio2fin = new Date(122,7,8,14,0,0); 
-        Date horajunio3fin = new Date(122,7,15,15,0,0); 
-       
-        Turno turno1 = new Turno(null,null,horajunio1ini,horajunio1fin,null);
-        Turno turno2 = new Turno(null,null,horajunio2ini,horajunio2fin,null);
-        Turno turno3 = new Turno(null,null,horajunio3ini,horajunio3fin,null);
-        Turno turno4 = new Turno(null,null,null,null,null);
-        Turno turno5 = new Turno(null,null,null,null,null);
-        
-        turno1.setCambioEstadoTurno(cambioEstadoturnos);
-        turno2.setCambioEstadoTurno(cambioEstadoturnos2);
-        turno3.setCambioEstadoTurno(cambioEstadoturnos3);
-       
-       /*Los recursos tecnologicos del recurso a*/
-        turnos.add(turno1);
-        turnos.add(turno2);
-        turnos.add(turno3);
-       
-        rt1.setTurnos(turnos);
-       
-        
         /*Creamos la pantalla*/
         PantallaRegistrarReservaTurnoDeRT pantalla = new PantallaRegistrarReservaTurnoDeRT();
         
