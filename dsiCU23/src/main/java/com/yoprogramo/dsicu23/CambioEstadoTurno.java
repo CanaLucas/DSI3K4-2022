@@ -40,8 +40,12 @@ public class CambioEstadoTurno {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    public String esUltimoCambioEstadoTurno(){
-        String a = this.estado.getNombre();
-        return a;
+    public boolean esUltimoCambioEstadoTurno(){
+        if(this.getFechaHoraHasta() == null){
+            return true;
+        }
+        return false;
+    
     }
+    
 }

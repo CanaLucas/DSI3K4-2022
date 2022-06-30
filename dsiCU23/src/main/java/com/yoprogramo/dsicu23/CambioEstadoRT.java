@@ -32,14 +32,19 @@ public class CambioEstadoRT {
     public void setFechaHoraHasta(Date fechaHoraHasta) {
         this.fechaHoraHasta = fechaHoraHasta;
     }
-    
-    public String esUltimoCambioEstadoRT(){
-        String a = this.estado.getNombre();
-        return a;
+
+    public Estado getEstado() {
+        return estado;
     }
 
-    public boolean esReservable() {
-        boolean esReservable = this.estado.getEsReservable();
-        return esReservable;
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }    
+    
+    /*Pregunta si tiene la fecha hasta nula para saber q es el ultimo cambio de estado y le pregunta a su objeto estado si es reservable*/
+    public boolean esUltimoCambioEstadoRT(){
+        return this.fechaHoraHasta == null && this.estado.EsReservable();
+        
     }
+    
 }

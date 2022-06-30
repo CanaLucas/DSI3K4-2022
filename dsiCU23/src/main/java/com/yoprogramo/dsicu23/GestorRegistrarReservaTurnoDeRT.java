@@ -146,12 +146,12 @@ public class GestorRegistrarReservaTurnoDeRT {
         ArrayList<RecursoTecnologico> tipoR = new ArrayList<>();
         for(int i = 0; i<this.recursosTecnologicos.size() ; i++){ 
            
-            /*Pregunto si el tipo de recurso es igual al nombre*/
-            if((this.recursosTecnologicos.get(i).getTipoRecurso().getNombre().equals(tipo) && this.recursosTecnologicos.get(i).obtenerRTReservable() == true)){
-                if(this.recursosTecnologicos.get(i).getCambioEstado().esUltimoCambioEstadoRT() != "Baja Tecnica" && this.recursosTecnologicos.get(i).getCambioEstado().esUltimoCambioEstadoRT() != "Baja Definitiva"){
-                
-                    tipoR.add(recursosTecnologicos.get(i));
-                }   
+            /*Pregunto si el tipo de recurso es igual al nombre o a todos y si es reservable ese recurso en particular*/
+            if(((this.recursosTecnologicos.get(i).getTipoRecurso().getNombre().equals(tipo) || tipo.equals("TODOS")) && this.recursosTecnologicos.get(i).obtenerRTReservable())){
+                /*Podria hacerlo en el de arriba pero va a quedar confuso*/
+                if(this.recursosTecnologicos.get(i).ultimoCambioEstado().getEstado().getNombre() != "Baja Tecnica" || this.recursosTecnologicos.get(i).ultimoCambioEstado().getEstado().getNombre() != "Baja Definitiva")
+                {    tipoR.add(recursosTecnologicos.get(i));
+                }  
             }
         }
         
@@ -166,8 +166,10 @@ public class GestorRegistrarReservaTurnoDeRT {
         
         ArrayList <RecursoTecnologico> recursosDatos = new ArrayList <>();
         for(int i = 0; i < recursos.size(); i++){
-           recursosDatos.add(i, recursos.get(i).mostrarRT());          
+            recursosDatos.add(i, recursos.get(i).mostrarRT());  
+            
         }
+        this.agruparRTPorCI();
         return recursosDatos;        
     }
     
@@ -181,15 +183,22 @@ public class GestorRegistrarReservaTurnoDeRT {
     }
     
     /*Lo hace la pantalla*/
-    public void agruparRTPorCI() {}
-
+    public void agruparRTPorCI() {       
+    
+    }
+    /*SALTA EL CASO 35 Y 36 Y VA DIRECTO AL CENTRO*/
     public String verificarCIDeCientifico(PersonalCientifico a) {
-        String correo = this.recursoTecnologicoSeleccionado.getCentro().MisCientificosActivos(a);
-        return correo;
+        
+        String correo = this.recursoTecnologicoSeleccionado.getCentro().misCientificosActivos(a);
+        if(a.getCorreoElectronicoInstitucional().equals(correo)){
+            return correo;
+        }
+        return "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO";
+        
     }
 
-    public Date obtenerFechaYHoraActual() {
-        Date horaActual = new Date(122,6,25,0,0);
+    public Date obtenerFechaYHoraActual() {        
+        Date horaActual = new Date(122,5,30,0,0);
         return horaActual;        
     }
 

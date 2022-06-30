@@ -44,8 +44,8 @@ public class Estado {
     public void setAmbito(String ambito) {
         this.ambito = ambito;
     }
-
-    public Boolean getEsReservable() {
+    /*Devuelve el valor del atributo es reservable*/
+    public Boolean EsReservable() {
         return esReservable;
     }
 
@@ -61,6 +61,8 @@ public class Estado {
         this.esCancelable = esCancelable;
     }
     
+    
+    
     /*Si el ambito del estado es recurso tecnologico devuelve un true, caso contrario un false*/
     public Boolean esAmbitoRecursoTecnologico(){
     
@@ -69,4 +71,6 @@ public class Estado {
         }
         return false;
     }
+
+    
 }

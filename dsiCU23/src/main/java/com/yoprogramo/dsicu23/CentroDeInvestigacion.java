@@ -197,21 +197,24 @@ public class CentroDeInvestigacion {
        
        for(int i = 0;i<this.recursosTecnologicos.size();i++){
            
-           if(this.getNombre() == this.recursosTecnologicos.get(i).getCentro().getNombre() && this.recursosTecnologicos.get(i).getTipoRecurso().getNombre() == tipo){
-               return true;    
+           if(this.getNombre() == this.recursosTecnologicos.get(i).getCentro().getNombre() && (this.recursosTecnologicos.get(i).getTipoRecurso().getNombre() == tipo)|| tipo == "TODOS"){
+              if(this.recursosTecnologicos.get(i).obtenerRTReservable()){
+                  return true;
+                  
+              }
+                   
            }
        }
        return false;
    }
-   
-   public String MisCientificosActivos(PersonalCientifico a){
-       
-       for(int i = 0;i<this.asignacionCientifico.size();i++){
-           
-           if(this.asignacionCientifico.get(i).getPersonalCientifico().equals(a)){
-               return this.asignacionCientifico.get(i).esCientificoActivo();    
-           }
-       }
-       return "cientifico no encontrado";
-   } 
+
+    public String misCientificosActivos(PersonalCientifico a) {
+        for(int i =0; i < this.asignacionCientifico.size();i++){
+            if(this.asignacionCientifico.get(i).esCientificoActivo() != null){
+                return this.asignacionCientifico.get(i).esCientificoActivo();
+            }
+        
+        }
+        return "No se encuentra conectado";
+    }
 }

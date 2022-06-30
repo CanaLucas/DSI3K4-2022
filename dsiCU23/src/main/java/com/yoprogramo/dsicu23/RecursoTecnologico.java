@@ -15,12 +15,13 @@ public class RecursoTecnologico {
     
     private Modelo modelo;              /*Referencias a la clases del modelo de analisis*/
     private TipoRecursoTecnologico tipoRecurso;
-    private CambioEstadoRT cambioEstado;
+    private ArrayList <CambioEstadoRT> cambioEstado;
     private ArrayList<Turno> turnos;
     private CentroDeInvestigacion centro;
  
     /*Constructor*/
-    public RecursoTecnologico(Integer numeroRT, Date fechaAlta, String imagenes, Date perioricidadMantenimientoPrev, Integer duracionMantenimientoPrev, String fraccionHorarioTurnos, Modelo modelo, TipoRecursoTecnologico tipoRecurso, CambioEstadoRT cambioEstado, ArrayList<Turno> turnos, CentroDeInvestigacion centro) {    
+
+    public RecursoTecnologico(Integer numeroRT, Date fechaAlta, String imagenes, Date perioricidadMantenimientoPrev, Integer duracionMantenimientoPrev, String fraccionHorarioTurnos, Modelo modelo, TipoRecursoTecnologico tipoRecurso, ArrayList<CambioEstadoRT> cambioEstado, ArrayList<Turno> turnos, CentroDeInvestigacion centro) {
         this.numeroRT = numeroRT;
         this.fechaAlta = fechaAlta;
         this.imagenes = imagenes;
@@ -33,6 +34,7 @@ public class RecursoTecnologico {
         this.turnos = turnos;
         this.centro = centro;
     }
+    
 
     /*Metodos*/
     public Integer getNumeroRT() {
@@ -99,13 +101,15 @@ public class RecursoTecnologico {
         this.tipoRecurso = tipoRecurso;
     }
 
-    public CambioEstadoRT getCambioEstado() {
+    public ArrayList<CambioEstadoRT> getCambioEstado() {
         return cambioEstado;
     }
 
-    public void setCambioEstado(CambioEstadoRT cambioEstado) {
+    public void setCambioEstado(ArrayList<CambioEstadoRT> cambioEstado) {
         this.cambioEstado = cambioEstado;
     }
+
+    
 
     public ArrayList<Turno> getTurnos() {
         return turnos;
@@ -133,8 +137,25 @@ public class RecursoTecnologico {
     }
 
     public boolean obtenerRTReservable() {
-        boolean r = this.cambioEstado.esReservable();
-        return r;        
+        /*Recorro todos los cambios de estado que tenga el recurso y encuentro el actual sabiendo q no tiene fecha hasta*/
+        for(int i = 0; i < this.cambioEstado.size();i++){
+            return this.cambioEstado.get(i).esUltimoCambioEstadoRT();
+             
+        }       
+        return false;
+    }
+    
+    public CambioEstadoRT ultimoCambioEstado() {
+        for(int i = 0; i < this.cambioEstado.size();i++){
+            if(this.cambioEstado.get(i).esUltimoCambioEstadoRT()){
+                return this.cambioEstado.get(i);
+               
+            
+            }
+            
+        }
+        return null;
+        
     }
     
     /*Este mostrar deberia traer todos los datos de los recursos y guardarlos en el array para que se puedan agrupar y seleccionar, no me queda muy claro que hace*/
@@ -142,7 +163,7 @@ public class RecursoTecnologico {
                
         this.getNumeroRT();
         this.getModelo().getNombre(); 
-        this.cambioEstado.esUltimoCambioEstadoRT();
+        this.ultimoCambioEstado();
         this.getCentro();
         return this;
     }
@@ -152,10 +173,10 @@ public class RecursoTecnologico {
     }
     
     public String toString(){
-        return "Numero: "+this.getNumeroRT() + "-" +"Modelo: "+ this.getModelo().getNombre()+"--"+"Marca: "+ this.getModelo().conocerMarca()+"--"+"Estado: "+this.getCambioEstado().esUltimoCambioEstadoRT();
+        return "Numero: "+this.getNumeroRT() + "-" +"Modelo: "+ this.getModelo().getNombre()+"--"+"Marca: "+ this.getModelo().conocerMarca()+"--"+"Estado: "+this.ultimoCambioEstado().getEstado().getNombre();
     }
 
-    ArrayList<Turno> buscarTurnosDesdeFechaYHoraActual(Date fechaActual) {
+    public ArrayList<Turno> buscarTurnosDesdeFechaYHoraActual(Date fechaActual) {
         ArrayList<Turno> turnoRecurso = new ArrayList<>();
         for(int i =0; i< this.turnos.size();i++){
             if(this.turnos.get(i).esDesdeHoraFechaYHoraActual(fechaActual)){
@@ -166,4 +187,8 @@ public class RecursoTecnologico {
         }
         return turnoRecurso;
     }
+
+   
+
+    
 }

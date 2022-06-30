@@ -13,7 +13,7 @@ public class DsiCU23 {
 
     public static void main(String[] args) throws InterruptedException {
        /*CREACION DE LOS OBJETOS SIN BASE DE DATOS*/
-        TipoRecursoTecnologico tRTTodas = new TipoRecursoTecnologico("TODAS","");
+        TipoRecursoTecnologico tRTTodas = new TipoRecursoTecnologico("TODOS","");
         TipoRecursoTecnologico tRTMicro = new TipoRecursoTecnologico("MICROSCOPIO DE MEDICON","");
         TipoRecursoTecnologico tRTBalanza = new TipoRecursoTecnologico("BALANZA DE PRECISION","");
         TipoRecursoTecnologico tRTResona = new TipoRecursoTecnologico("RESONADOR MAGNETICO","");
@@ -43,8 +43,8 @@ public class DsiCU23 {
         ArrayList <Turno> turnosRT19 = new ArrayList <>();
         ArrayList <Turno> turnosRT20 = new ArrayList <>();
         
-        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",false,true);
-        Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",false,true);
+        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",true,true);
+        Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",true,true);
         Estado estadoTurnoReser = new Estado("Reservado","","Turno",false,true);
        
         Date desdeCET = new Date(122,6,28,0,0);
@@ -61,29 +61,31 @@ public class DsiCU23 {
         cETPteConf.add(cambioTurnoPteConf);
         cETReser.add(cambioTurnoReser);
        
+                
+        
        //definicion de Turnos desde el 4/7/2022 al 8/7/2022
        Date fechaGenTodosTurnos = new Date(122,6,27,8,0,0);
        // Turnos para RT tipo Microscopios
-        Date tMLuIni1 = new Date(122,7,4,8,0,0);
-        Date tMLuFin1 = new Date(122,7,4,12,0,0); 
-        Date tMLuIni2 = new Date(122,7,4,14,0,0);
-        Date tMLuFin2 = new Date(122,7,4,18,0,0); 
-        Date tMMaIni1 = new Date(122,7,5,8,0,0);
-        Date tMMaFin1 = new Date(122,7,5,12,0,0); 
-        Date tMMaIni2 = new Date(122,7,5,14,0,0);
-        Date tMMaFin2 = new Date(122,7,5,18,0,0);
-        Date tMMiIni1 = new Date(122,7,6,8,0,0);
-        Date tMMiFin1 = new Date(122,7,6,12,0,0); 
-        Date tMMiIni2 = new Date(122,7,6,14,0,0);
-        Date tMMiFin2 = new Date(122,7,6,18,0,0);
-        Date tMJuIni1 = new Date(122,7,7,8,0,0);
-        Date tMJuFin1 = new Date(122,7,7,12,0,0); 
-        Date tMJuIni2 = new Date(122,7,7,14,0,0);
-        Date tMJuFin2 = new Date(122,7,7,18,0,0);
-        Date tMViIni1 = new Date(122,7,8,8,0,0);
-        Date tMViFin1 = new Date(122,7,8,12,0,0); 
-        Date tMViIni2 = new Date(122,7,8,14,0,0);
-        Date tMViFin2 = new Date(122,7,8,18,0,0);
+        Date tMLuIni1 = new Date(122,6,4,8,0,0);
+        Date tMLuFin1 = new Date(122,6,4,12,0,0); 
+        Date tMLuIni2 = new Date(122,6,4,14,0,0);
+        Date tMLuFin2 = new Date(122,6,4,18,0,0); 
+        Date tMMaIni1 = new Date(122,6,5,8,0,0);
+        Date tMMaFin1 = new Date(122,6,5,12,0,0); 
+        Date tMMaIni2 = new Date(122,6,5,14,0,0);
+        Date tMMaFin2 = new Date(122,6,5,18,0,0);
+        Date tMMiIni1 = new Date(122,6,6,8,0,0);
+        Date tMMiFin1 = new Date(122,6,6,12,0,0); 
+        Date tMMiIni2 = new Date(122,6,6,14,0,0);
+        Date tMMiFin2 = new Date(122,6,6,18,0,0);
+        Date tMJuIni1 = new Date(122,6,7,8,0,0);
+        Date tMJuFin1 = new Date(122,6,7,12,0,0); 
+        Date tMJuIni2 = new Date(122,6,7,14,0,0);
+        Date tMJuFin2 = new Date(122,6,7,18,0,0);
+        Date tMViIni1 = new Date(122,6,8,8,0,0);
+        Date tMViFin1 = new Date(122,6,8,12,0,0); 
+        Date tMViIni2 = new Date(122,6,8,14,0,0);
+        Date tMViFin2 = new Date(122,6,8,18,0,0);
         
         Turno turnoMA1 = new Turno(fechaGenTodosTurnos,"Lunes",tMLuIni1,tMLuFin1,cETReser);
         Turno turnoMB1 = new Turno(fechaGenTodosTurnos,"Martes",tMMaIni1,tMMaFin1,cETDispo);
@@ -108,16 +110,16 @@ public class DsiCU23 {
         turnosRTMicro.add(turnoME2);
         
        // Turnos para RT tipo Resonador
-        Date tRLuIni = new Date(122,7,4,8,0,0);
-        Date tRLuFin = new Date(122,7,4,18,0,0); 
-        Date tRMaIni = new Date(122,7,5,8,0,0);
-        Date tRMaFin = new Date(122,7,5,18,0,0); 
-        Date tRMiIni = new Date(122,7,6,8,0,0);
-        Date tRMiFin = new Date(122,7,6,18,0,0); 
-        Date tRJuIni = new Date(122,7,7,8,0,0);
-        Date tRJuFin = new Date(122,7,7,18,0,0); 
-        Date tRViIni = new Date(122,7,8,8,0,0);
-        Date tRViFin = new Date(122,7,8,18,0,0);
+        Date tRLuIni = new Date(122,6,4,8,0,0);
+        Date tRLuFin = new Date(122,6,4,18,0,0); 
+        Date tRMaIni = new Date(122,6,5,8,0,0);
+        Date tRMaFin = new Date(122,6,5,18,0,0); 
+        Date tRMiIni = new Date(122,6,6,8,0,0);
+        Date tRMiFin = new Date(122,6,6,18,0,0); 
+        Date tRJuIni = new Date(122,6,7,8,0,0);
+        Date tRJuFin = new Date(122,6,7,18,0,0); 
+        Date tRViIni = new Date(122,6,8,8,0,0);
+        Date tRViFin = new Date(122,6,8,18,0,0);
         
         Turno turnoRA = new Turno(fechaGenTodosTurnos,"Lunes",tRLuIni,tRLuFin,cETReser);
         Turno turnoRB = new Turno(fechaGenTodosTurnos,"Martes",tRMaIni,tRMaFin,cETReser);
@@ -152,16 +154,16 @@ public class DsiCU23 {
         turnosRT19.add(turnoRE);
         
        // Turnos para RT tipo Camara Termica
-        Date tCTLuIni = new Date(122,7,4,8,0,0);
-        Date tCTLuFin = new Date(122,7,4,18,0,0); 
-        Date tCTMaIni = new Date(122,7,5,8,0,0);
-        Date tCTMaFin = new Date(122,7,5,18,0,0); 
-        Date tCTMiIni = new Date(122,7,6,8,0,0);
-        Date tCTMiFin = new Date(122,7,6,18,0,0); 
-        Date tCTJuIni = new Date(122,7,7,8,0,0);
-        Date tCTJuFin = new Date(122,7,7,18,0,0); 
-        Date tCTViIni = new Date(122,7,8,8,0,0);
-        Date tCTViFin = new Date(122,7,8,18,0,0); 
+        Date tCTLuIni = new Date(122,6,4,8,0,0);
+        Date tCTLuFin = new Date(122,6,4,18,0,0); 
+        Date tCTMaIni = new Date(122,6,5,8,0,0);
+        Date tCTMaFin = new Date(122,6,5,18,0,0); 
+        Date tCTMiIni = new Date(122,6,6,8,0,0);
+        Date tCTMiFin = new Date(122,6,6,18,0,0); 
+        Date tCTJuIni = new Date(122,6,7,8,0,0);
+        Date tCTJuFin = new Date(122,6,7,18,0,0); 
+        Date tCTViIni = new Date(122,6,8,8,0,0);
+        Date tCTViFin = new Date(122,6,8,18,0,0); 
        
         Turno turnoCTA = new Turno(fechaGenTodosTurnos,"Lunes",tCTLuIni,tCTLuFin,cETDispo);
         Turno turnoCTB = new Turno(fechaGenTodosTurnos,"Martes",tCTMaIni,tCTMaFin,cETReser);
@@ -261,7 +263,12 @@ public class DsiCU23 {
         
        /*Creando las relaciones del recurso con un estado */
         Estado estadoDispo = new Estado("Disponible","","Recurso Tecnologico",true,false);
-        Estado estadoMante = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
+        Estado estadoDispo2 = new Estado("Disponible","","Recurso Tecnologico",true,false);
+        Estado estadoDispo3 = new Estado("Disponible","","Recurso Tecnologico",true,false);
+        Estado estadoDispo4 = new Estado("Disponible","","Recurso Tecnologico",true,false);
+        Estado estadoMante1 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
+        Estado estadoMante2 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
+        Estado estadoMante3 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
         Estado estadoManteCo = new Estado("Inicio Mantenimiento Correctivo","","Recurso Tecnologico",true,false);
         Estado estadoBajaT = new Estado("Baja Tecnica","","Recurso Tecnologico",false,false);
         Estado estadoBajaD = new Estado("Baja Definitiva","","Recurso Tecnologico",false,false);
@@ -270,14 +277,64 @@ public class DsiCU23 {
         Date desde = new Date(122,6,22,0,0);
         Date hasta = new Date(122,6,30,0,0);
         // hasta de los cambiosde estados de RT Tendrian q ser null ya que se suòne que estamos 
-        // definiendo los ultimos estados que tienen los RT
+        // definiendo los cambios de estados que tienen los RT, los que tienen null son los ultimos estados
         
-        CambioEstadoRT cambioE1 = new CambioEstadoRT(desde,hasta,estadoDispo);
-        CambioEstadoRT cambioE2 = new CambioEstadoRT(desde,hasta,estadoMante);
-        CambioEstadoRT cambioE3 = new CambioEstadoRT(desde,hasta,estadoManteCo);
-        CambioEstadoRT cambioE4 = new CambioEstadoRT(desde,hasta,estadoBajaT);
-        CambioEstadoRT cambioE5 = new CambioEstadoRT(desde,hasta,estadoBajaD);
-        CambioEstadoRT cambioE6 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE1 = new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE2 = new CambioEstadoRT(desde,null,estadoMante1);
+        CambioEstadoRT cambioE3 = new CambioEstadoRT(desde,null,estadoManteCo);
+        CambioEstadoRT cambioE4 = new CambioEstadoRT(desde,null,estadoBajaT);
+        CambioEstadoRT cambioE5 = new CambioEstadoRT(desde,null,estadoBajaD);
+        CambioEstadoRT cambioE6 = new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE7 = new CambioEstadoRT(desde,null,estadoDispo2);
+        CambioEstadoRT cambioE8 = new CambioEstadoRT(desde,null,estadoDispo3);
+        CambioEstadoRT cambioE9 = new CambioEstadoRT(desde,null,estadoDispo4);
+        CambioEstadoRT cambioE10 = new CambioEstadoRT(desde,null,estadoIngre);
+        CambioEstadoRT cambioE11= new CambioEstadoRT(desde,null,estadoMante2);
+        CambioEstadoRT cambioE12 = new CambioEstadoRT(desde,hasta,estadoMante3);
+        CambioEstadoRT cambioE13 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE14 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE15 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE16= new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE17 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE18 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE19 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE20 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        
+        /*Arrays para setearles a los muchos cambios de estado que tengan los recursos*/
+        ArrayList <CambioEstadoRT> estadosRecurso1 = new ArrayList();
+        estadosRecurso1.add(cambioE1);        
+        ArrayList <CambioEstadoRT> estadosRecurso2 = new ArrayList();
+        estadosRecurso2.add(cambioE3);
+        ArrayList <CambioEstadoRT> estadosRecurso3 = new ArrayList();
+        estadosRecurso3.add(cambioE4);
+        ArrayList <CambioEstadoRT> estadosRecurso4 = new ArrayList();
+        estadosRecurso4.add(cambioE5);
+        ArrayList <CambioEstadoRT> estadosRecurso5 = new ArrayList();
+        estadosRecurso5.add(cambioE7);        
+        ArrayList <CambioEstadoRT> estadosRecurso6 = new ArrayList();
+        estadosRecurso6.add(cambioE6);
+        ArrayList <CambioEstadoRT> estadosRecurso7 = new ArrayList();
+        estadosRecurso7.add(cambioE10);
+        ArrayList <CambioEstadoRT> estadosRecurso8 = new ArrayList();
+        estadosRecurso8.add(cambioE9);
+        ArrayList <CambioEstadoRT> estadosRecurso9 = new ArrayList();
+        estadosRecurso9.add(cambioE2);
+        ArrayList <CambioEstadoRT> estadosRecurso10 = new ArrayList();
+        estadosRecurso10.add(cambioE8);
+        ArrayList <CambioEstadoRT> estadosRecurso11 = new ArrayList();
+        estadosRecurso11.add(cambioE9);
+        ArrayList <CambioEstadoRT> estadosRecurso12 = new ArrayList();
+        estadosRecurso12.add(cambioE10);
+//        ArrayList <CambioEstadoRT> estadosRecurso13 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso14 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso15 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso16 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso17 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso18 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso19 = new ArrayList();
+//        ArrayList <CambioEstadoRT> estadosRecurso20 = new ArrayList();
+        
+        
         
        /*Creando las relaciones del Marca y Modelo */
         Marca marcaShi = new Marca("Shidmazu");
@@ -305,35 +362,35 @@ public class DsiCU23 {
         centrosArray.add(centroSpace);
         
        /*Creando RTs */
-        RecursoTecnologico rt1 = new RecursoTecnologico(1,null,null,null,null,null,modelShi,tRTMicro,cambioE1,turnosRTMicro,centroSern);
-        RecursoTecnologico rt2 = new RecursoTecnologico(2,null,null,null,null,null,modelNikon,tRTMicro,cambioE2,turnosRTMicro,centroSern);        
-        RecursoTecnologico rt3 = new RecursoTecnologico(3,null,null,null,null,null,modelGenElec,tRTMicro,cambioE3,turnosRTMicro,centroNasa);
-        RecursoTecnologico rt4 = new RecursoTecnologico(4,null,null,null,null,null,modelNikon,tRTResona,cambioE4,turnosRT4,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,turnosRT5,centroSpace); 
-        RecursoTecnologico rt6 = new RecursoTecnologico(6,null,null,null,null,null,modelGenElec,tRTMicro,cambioE1,turnosRTMicro,centroSern);
-        RecursoTecnologico rt7 = new RecursoTecnologico(7,null,null,null,null,null,modelSie,tRTBalanza,cambioE3,null,centroNasa);
-        RecursoTecnologico rt8 = new RecursoTecnologico(8,null,null,null,null,null,modelSie,tRTResona,cambioE3,turnosRT8,centroSpace);
-        RecursoTecnologico rt9 = new RecursoTecnologico(9,null,null,null,null,null,modelShi,tRTEqCompu,cambioE1,turnosRT9,centroNasa);
-        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelSie,tRTMicro,cambioE1,turnosRTMicro,centroNasa);
-        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,cambioE6,turnosRTMicro,centroSern);
-        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,cambioE2,turnosRT12, centroSern);        
-        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,cambioE6,turnosRTMicro, centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,cambioE4,turnosRT14,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,cambioE5,turnosRT15,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,cambioE2,turnosRTMicro,centroSern);
-        RecursoTecnologico rt17 = new RecursoTecnologico(17,null,null,null,null,null,modelGramPre,tRTBalanza,cambioE3,null,centroNasa);
-        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,cambioE1,turnosRT18,centroSpace);
-        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,cambioE1,turnosRT19,centroNasa);
-        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,cambioE1,turnosRT20,centroNasa);
-        
+        RecursoTecnologico rt1 = new RecursoTecnologico(1,null,null,null,null,null,modelShi,tRTMicro,estadosRecurso1,turnosRTMicro,centroSern);
+        RecursoTecnologico rt2 = new RecursoTecnologico(2,null,null,null,null,null,modelNikon,tRTMicro,estadosRecurso2,turnosRTMicro,centroSern);        
+        RecursoTecnologico rt3 = new RecursoTecnologico(3,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso3,turnosRTMicro,centroNasa);
+        RecursoTecnologico rt4 = new RecursoTecnologico(4,null,null,null,null,null,modelNikon,tRTResona,estadosRecurso4,turnosRT4,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso5,turnosRT5,centroSpace); 
+        RecursoTecnologico rt6 = new RecursoTecnologico(6,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso6,turnosRTMicro,centroSern);
+        RecursoTecnologico rt7 = new RecursoTecnologico(7,null,null,null,null,null,modelSie,tRTBalanza,estadosRecurso7,null,centroNasa);
+        RecursoTecnologico rt8 = new RecursoTecnologico(8,null,null,null,null,null,modelSie,tRTResona,estadosRecurso8,turnosRT8,centroSpace);
+        RecursoTecnologico rt9 = new RecursoTecnologico(9,null,null,null,null,null,modelShi,tRTEqCompu,estadosRecurso9,turnosRT9,centroNasa);
+        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelGramPre,tRTMicro,estadosRecurso10,turnosRTMicro,centroNasa);
+//        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,estadosRecurso11,turnosRTMicro,centroSern);
+//        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso12,turnosRT12, centroSern);        
+//        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso13,turnosRTMicro, centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+//        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,estadosRecurso14,turnosRT14,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+//        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,estadosRecurso15,turnosRT15,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
+//        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso16,turnosRTMicro,centroSern);
+//        RecursoTecnologico rt17 = new RecursoTecnologico(17,null,null,null,null,null,modelGramPre,tRTBalanza,estadosRecurso17,null,centroNasa);
+//        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,estadosRecurso18,turnosRT18,centroSpace);
+//        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,estadosRecurso19,turnosRT19,centroNasa);
+//        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso20,turnosRT20,centroNasa);
+//        
        /*Creando relacion RTs con Centros */
         ArrayList <RecursoTecnologico> rtCentroSern= new ArrayList<>();
         rtCentroSern.add(rt1);
         rtCentroSern.add(rt2);
         rtCentroSern.add(rt6);
-        rtCentroSern.add(rt11);
-        rtCentroSern.add(rt12);
-        rtCentroSern.add(rt16);
+//        rtCentroSern.add(rt11);
+//        rtCentroSern.add(rt12);
+//        rtCentroSern.add(rt16);
         
         centroSern.setRecursosTecnologicos(rtCentroSern);       
         
@@ -343,19 +400,19 @@ public class DsiCU23 {
         rtCentroNasa.add(rt7);
         rtCentroNasa.add(rt9);
         rtCentroNasa.add(rt10);
-        rtCentroNasa.add(rt13);
-        rtCentroNasa.add(rt14);
-        rtCentroNasa.add(rt17);
-        rtCentroNasa.add(rt19);
-        rtCentroNasa.add(rt20);
+//        rtCentroNasa.add(rt13);
+//        rtCentroNasa.add(rt14);
+//        rtCentroNasa.add(rt17);
+//        rtCentroNasa.add(rt19);
+//        rtCentroNasa.add(rt20);
         
         centroNasa.setRecursosTecnologicos(rtCentroNasa);
         
         ArrayList <RecursoTecnologico> rtCentroSpace= new ArrayList<>();
         rtCentroSpace.add(rt5);
         rtCentroSpace.add(rt8);
-        rtCentroSpace.add(rt15);
-        rtCentroSpace.add(rt18);
+//        rtCentroSpace.add(rt15);
+//        rtCentroSpace.add(rt18);
         
         centroSpace.setRecursosTecnologicos(rtCentroSpace);
        
@@ -371,30 +428,55 @@ public class DsiCU23 {
         rec.add(rt8);
         rec.add(rt9);
         rec.add(rt10);
-        rec.add(rt11);
-        rec.add(rt12);
-        rec.add(rt13);
-        rec.add(rt14);
-        rec.add(rt15);
-        rec.add(rt16);
-        rec.add(rt17);
-        rec.add(rt18);
-        rec.add(rt19);
-        rec.add(rt20);
+//        rec.add(rt11);
+//        rec.add(rt12);
+//        rec.add(rt13);
+//        rec.add(rt14);
+//        rec.add(rt15);
+//        rec.add(rt16);
+//        rec.add(rt17);
+//        rec.add(rt18);
+//        rec.add(rt19);
+//        rec.add(rt20);
         
        /*Creando Personal Cientifico/AsignacionT con Centros */
         ArrayList <AsignacionCientificoDelCI> asignaciones = new ArrayList <>();
         
         PersonalCientifico cientifico1 = new PersonalCientifico(1,"Bruce","Wayne",39393939,"brucewayne@gmail.com","iambatman@gmail.com",351351523);
         
-        AsignacionCientificoDelCI asignacion1 = new AsignacionCientificoDelCI(null,null,cientifico1);
+        AsignacionCientificoDelCI asignacion1 = new AsignacionCientificoDelCI(desde,null,cientifico1);
         
         asignaciones.add(asignacion1);       
         
         centroSern.setAsignacionCientifico(asignaciones);
         
+        /*Otro Cientifico asociado a sus centro NASA*/
+        
+        ArrayList <AsignacionCientificoDelCI> asignaciones2 = new ArrayList <>();
+        
         PersonalCientifico cientifico2 = new PersonalCientifico(2,"Alfred","Lord",236547891,"alfredlord@gmail.com","eljefe@gmail.com",351351232);
+        
+        AsignacionCientificoDelCI asignacion2 = new AsignacionCientificoDelCI(desde,null,cientifico2);
+        
+        asignaciones2.add(asignacion2);       
+        
+        centroNasa.setAsignacionCientifico(asignaciones2);
+        
+        /*Otro Cientifico asociado a sus centro SPACE X*/
+        
+        ArrayList <AsignacionCientificoDelCI> asignaciones3 = new ArrayList <>();
+        
         PersonalCientifico cientifico3 = new PersonalCientifico(3,"Thomas","Wayne",31394839,"thomaswayne@gmail.com","iamjoker@gmail.com",35145823);
+        
+        AsignacionCientificoDelCI asignacion3 = new AsignacionCientificoDelCI(desde,null,cientifico3);
+        
+        asignaciones3.add(asignacion3);       
+        
+        centroSpace.setAsignacionCientifico(asignaciones3);
+        
+        
+        
+        
         PersonalCientifico cientifico4 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
       
         /*Creamos la pantalla*/
@@ -421,23 +503,25 @@ public class DsiCU23 {
             /*DEVUELVE UN ARRAY QUE CONTIENE TODOS LOS TIPOS DE RECURSO POSIBLES*/
             ArrayList <String> cmbTiposDeRecursos = gestor.opcionReservaTurnoDeRT(pantalla.getBtnOpcionReservarTurnoDeRT());
             
-            /*Declaro un string*/
-            String seleccion = new String();
+            /*Declaro un string que devolvera la seleccion de tipo de recurso*/
+            
             
             /*Declaro el array que contendra los recursos de tipo elegido*/
             ArrayList<RecursoTecnologico> recursos = new ArrayList <>();   
             
-            /*ENTRA EN UN CICLO PORQ SI ELIGE UN TIPO DE RECURSO QUE NO SE PUEDE RESERVAR ENTONCES VUELVE A PEDIR QUE SELECCIONES UN NUEVO TIPO*/
-            while(recursos.isEmpty()){    
-                /*Llamo a la interfaz que te hace seleccionar un tipo de producto*/
-                seleccion = pantalla.mostrarTiposDeRecursos(cmbTiposDeRecursos);
-                
-                /*Mando al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/
-                recursos = gestor.buscarRTDeTipoSeleccionado(seleccion);
-            }
+            /*Seteo en la pantalla los tipos de recursos y llamo a la interfaz principal mandandole los tipos de recursos para que los pueda cargar*/
+            pantalla.setCmbTiposDeRecursos(cmbTiposDeRecursos);
             
-            /*Comprobacion de que lo que se selecciona en el formulario se devuelve*/
-            System.out.print(seleccion);
+            /*Loop que sigue pidiendo que se haga un set de tipo recurso hasta que no sea nulo*/            
+            pantalla.mostrarTiposDeRecursos();
+                
+            
+            
+            System.out.print(pantalla.getTipoRecursoSeleccionado());
+            /*Mando al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/
+            
+            recursos = gestor.buscarRTDeTipoSeleccionado(pantalla.getTipoRecursoSeleccionado());
+            
             /*LE PASA LOS RECURSOS A LA PANTALLA*/
             pantalla.setListaRT(recursos);
             
@@ -455,24 +539,31 @@ public class DsiCU23 {
             /*setea todos los centros que existen en un array list*/
             pantalla.setCentrosInvestigacion(centrosArray);
             
-            /*llama a la pantalla y esta o crea una nueva gui q muestre todos los recursos agrupados y espera a q selecciones una para setearlo como recurso seleccionado
-            ESTE METODO TERMINA HACIENDO UN MONTON DE PASOS Y MENSAJES DEL DIAGRAMA, NO ESTA AGRUPANDO COMO TAL PERO SI VA A MOSTRAR LOS RECURSOS SEGUN EL CENTRO Q TIENEN,
-            TENDRIAMOS QUE VER SI ES NECESARIO CAMBIAR LOS METODOS PARA Q HAGAN COSAS O QUE HACER
-            */
-            
+                                 
+            /*Lleva los recursos a la pantalla para que los pueda mostrar por centro de investigacion*/
             pantalla.mostrarRTAgrupados(recursosAll);
             
-            /*RECURSO SELECCIONADO POR EL USUARIO*/
+            /*Al volver al MAIN ya se seteo en la pantalla el recurso seleccionado por lo q se lo pasamos al gestor*/
             gestor.setRecursoTecnologicoSeleccionado(pantalla.getRecursoSeleccionado());
-           
-            gestor.setUsuarioLogueado(cientifico1);
+            /*MUESTRA EL RECURSO SELECCIONADO POR CONSOLA */
+            System.out.print(pantalla.getRecursoSeleccionado().toString());
+           /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/
+            gestor.setUsuarioLogueado(cientifico1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
             boolean estaLogueado = gestor.buscarUsuarioLogueado(cientifico1);
-            String correoInstitucionalCientifico = gestor.verificarCIDeCientifico(cientifico1);
+            /*VERIFICA QUE EL CIENTIFICO QUE LE MANDAS ES DEL MISMO CENTRO QUE EL RECURSO SELECCIONADO Y SI NO LO ES AVISA POR CONSOLA Y TERMINA TODO*/
+            String correoInstitucionalCientifico = gestor.verificarCIDeCientifico(gestor.getUsuarioLogueado());
+            if(correoInstitucionalCientifico == "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO"){
+                System.out.print("\n");
+                System.out.print(correoInstitucionalCientifico);
+                System.exit(0);
             
-            System.out.print("---" + correoInstitucionalCientifico+"-----");
+            }
+            System.out.print("\n");
+            System.out.print(correoInstitucionalCientifico);
             
             /*Obtiene la hora actual del sistema*/
             Date horaActual = gestor.obtenerFechaYHoraActual();
+            System.out.print("\n");
             System.out.print(horaActual);
             
             gestor.setFechaActual(horaActual);
@@ -483,19 +574,19 @@ public class DsiCU23 {
             /*YA TENGO LOS TURNOS*/
             
             pantalla.mostrarTurnos(gestor.getTurnoDelRT());
-            
-            
-            /*LA PARTE DEL AMBITO*/
-            String amb = "Recurso tecnologico";
-            
-            //gestor.reservarTurnoDeRT(amb);
-            
-            /* Lo que muestra recursosAll
-            for(int i=0;i<recursosAll.size();i++){
-                System.out.print(recursosAll.get(i) + " ");
-            
-            }
-            */                  
+//            
+//            
+//            /*LA PARTE DEL AMBITO*/
+//            String amb = "Recurso tecnologico";
+//            
+//            //gestor.reservarTurnoDeRT(amb);
+//            
+//            /* Lo que muestra recursosAll
+//            for(int i=0;i<recursosAll.size();i++){
+//                System.out.print(recursosAll.get(i) + " ");
+//            
+//            }
+//            */                  
         }
         else{
             System.out.print("Funcion aun no desarrollada");

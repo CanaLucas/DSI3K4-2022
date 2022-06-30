@@ -70,8 +70,12 @@ public class Turno {
     public Turno mostrarTurno(Turno t) {
         
         for (int i = 0; i< this.cambioEstadoTurno.size();i++){
-            this.cambioEstadoTurno.get(i).esUltimoCambioEstadoTurno();
+            if(this.cambioEstadoTurno.get(i).esUltimoCambioEstadoTurno()){
+                this.cambioEstadoTurno.get(i).getEstado().getNombre();
+            }
+                
         }
         return this;
     } 
+    
 }
