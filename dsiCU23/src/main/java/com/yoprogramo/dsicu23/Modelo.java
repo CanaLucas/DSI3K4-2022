@@ -30,7 +30,7 @@ public class Modelo {
         this.marca = marca;
     }
     
-    /*ACA ESTA LA DEPENDENCIA, CREO Q ES MAS FACIL DAR VUELTA LA RELACION*/
+    // Metodos de la clase que se usa en el CU23
     public String conocerMarca(){
         return this.marca.getNombre();
     }  

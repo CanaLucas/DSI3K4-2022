@@ -1,8 +1,8 @@
 
 package com.yoprogramo.dsicu23;
 
-
 public class PersonalCientifico {
+
     /*Atributos de la clase*/
     private Integer legajo;
     private String nombre;
@@ -27,7 +27,7 @@ public class PersonalCientifico {
 
     public Integer getLegajo() {
         return legajo;
-    }
+    }// se usa
 
     public void setLegajo(Integer legajo) {
         this.legajo = legajo;
@@ -81,6 +81,6 @@ public class PersonalCientifico {
         this.telefonoCelular = telefonoCelular;
     }
     
-    public void esUsuarioLegueado(){
-    }
+    // Metodos de la clase que se usa en el CU23
+    public void esUsuarioLegueado(){}
 }

@@ -1,8 +1,8 @@
 
 package com.yoprogramo.dsicu23;
 
-
 public class Estado {
+    
     /*Definicion de los atributos de la clase*/
     private String nombre;
     private String descripcion;
@@ -11,7 +11,6 @@ public class Estado {
     private Boolean esCancelable;
     
     /*Definicion del constructor*/
-
     public Estado(String nombre, String descripcion, String ambito, Boolean esReservable, Boolean esCancelable) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -20,9 +19,6 @@ public class Estado {
         this.esCancelable = esCancelable;
     }
 
-    
-    
-    
     /* Metodos de la clase*/
 
     public String getNombre() {
@@ -48,7 +44,6 @@ public class Estado {
     public void setAmbito(String ambito) {
         this.ambito = ambito;
     }
-    /*Devuelve el valor del atributo es reservable*/
 
     public Boolean getEsReservable() {
         return esReservable;
@@ -58,15 +53,6 @@ public class Estado {
         this.esReservable = esReservable;
     }
 
-    public boolean esReservado(){
-        if(this.getNombre() == "Reservado"){
-            return true;
-        }
-        return false;
-        
-    }
-    
-
     public Boolean getEsCancelable() {
         return esCancelable;
     }
@@ -75,24 +61,13 @@ public class Estado {
         this.esCancelable = esCancelable;
     }
     
+    // Metodos de la clase que se usa en el CU23
     
-    
-    /*Si el ambito del estado es recurso tecnologico devuelve un true, caso contrario un false*/
-    public Boolean esAmbitoRecursoTecnologico(){
-    
-        if(this.getAmbito() == "Recurso Tecnologico"){
-            return true;
-        }
-        return false;
+    public boolean esReservado(){
+        return "Reservado".equals(this.getNombre());
     }
 
     public boolean esAmbitoTurno() {
-        return this.getNombre() == "Turno";
-    }
-    
-     
-
-    
-
-    
+        return "Turno".equals(this.getNombre());
+    } 
 }

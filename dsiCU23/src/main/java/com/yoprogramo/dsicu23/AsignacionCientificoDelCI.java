@@ -29,7 +29,11 @@ public class AsignacionCientificoDelCI {
     public Date getFechaHasta() {
         return fechaHasta;
     }
-
+    
+    public void setFechaHasta(Date fechaHasta) {
+        this.fechaHasta = fechaHasta;
+    }
+    
     public PersonalCientifico getPersonalCientifico() {
         return personalCientifico;
     }
@@ -38,13 +42,11 @@ public class AsignacionCientificoDelCI {
         this.personalCientifico = personalCientifico;
     }
     
-    public void setFechaHasta(Date fechaHasta) {
-        this.fechaHasta = fechaHasta;
-    }
+    // Metodos de la clase que se usa en el CU23
     
-    /*Verifica que el cientifico siga en el centro ya que no tiene una fecha hasta*/
     public String esCientificoActivo(){
-    
+          
+        /*Verifica que el cientifico siga en el centro ya que no tiene una fecha hasta*/  
         if(this.getFechaHasta() == null){
             String correo = this.personalCientifico.getCorreoElectronicoInstitucional();
             return correo;

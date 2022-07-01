@@ -6,7 +6,7 @@ import java.util.Date;
 public class CambioEstadoTurno {
     private Date fechaHoraDesde;
     private Date fechaHoraHasta;
-    private Estado estado; /* relacion a estado*/
+    private Estado estado; 
     
     /*Constructor de la clase*/
     public CambioEstadoTurno(Date fechaHoraDesde, Date fechaHoraHasta, Estado estado) {
@@ -40,12 +40,14 @@ public class CambioEstadoTurno {
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+    
+    // Metodos de la clase que se usa en el CU23
+    
     public boolean esUltimoCambioEstadoTurno(){
+        
         if(this.getFechaHoraHasta() == null){
             return true;
         }
         return false;
-    
     }
-    
 }

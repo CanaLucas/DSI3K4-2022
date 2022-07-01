@@ -4,7 +4,6 @@ package com.yoprogramo.dsicu23;
 import java.util.ArrayList;
 import java.util.Date;
 
-
 public class CentroDeInvestigacion {
     /*Definicion de los atributos de la clase*/
     private String nombre;
@@ -13,17 +12,17 @@ public class CentroDeInvestigacion {
     private String edificio;
     private String piso;
     private String coordenadas;
-    private String telefonosContacto; /*Es un string o deberia ser un array de telefonos*/
+    private String telefonosContacto; 
     private String correoElectronico;
     private Integer numeroResolucionCreacion;
     private Date fechaResolucionCreacion;
     private String reglamento;
     private String caracteristicasGenerales;
     private Date fechaAlta;
-    private Integer tiempoAntelacionReserva; /*Fijarse el tipo de dato q es*/
+    private Integer tiempoAntelacionReserva; 
     private Date fechaBaja;
     private String motivoBaja;
-    private ArrayList<RecursoTecnologico> recursosTecnologicos; /*Referencias a otras clases*/
+    private ArrayList<RecursoTecnologico> recursosTecnologicos; 
     private ArrayList<AsignacionCientificoDelCI> asignacionCientifico;
     
     /* Constructor de la clase*/
@@ -193,28 +192,30 @@ public class CentroDeInvestigacion {
     public void setAsignacionCientifico(ArrayList<AsignacionCientificoDelCI> asignacionCientifico) {
         this.asignacionCientifico = asignacionCientifico;
     }
-   public boolean tieneAlMenosUnRecurso(String tipo){
-       
+   
+    // Metodos de la clase que se usa en el CU23
+    
+    public boolean tieneAlMenosUnRecurso(String tipo){
+       //metodo que se usa para grupar por CI en la pantalla
        for(int i = 0;i<this.recursosTecnologicos.size();i++){
            
-           if(this.getNombre() == this.recursosTecnologicos.get(i).getCentro().getNombre() && (this.recursosTecnologicos.get(i).getTipoRecurso().getNombre() == tipo)|| tipo == "TODOS"){
+           if(this.getNombre().equals(this.recursosTecnologicos.get(i).getCentro().getNombre()) && (this.recursosTecnologicos.get(i).getTipoRecurso().getNombre().equals(tipo))|| "TODOS".equals(tipo)){
               if(this.recursosTecnologicos.get(i).obtenerRTReservable()){
-                  return true;
-                  
+                  return true;              
               }
-                   
            }
        }
        return false;
    }
 
     public String misCientificosActivos(PersonalCientifico a) {
+        
         for(int i =0; i < this.asignacionCientifico.size();i++){
+            
             if(this.asignacionCientifico.get(i).esCientificoActivo() != null){
                 return this.asignacionCientifico.get(i).esCientificoActivo();
             }
-        
         }
-        return "No se encuentra conectado";
+        return "No se encuentra conectado.";
     }
 }

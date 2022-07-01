@@ -1,7 +1,6 @@
 
 package com.yoprogramo.dsicu23;
 
-
 public class Marca {
     /*Definicion atributos de la clase*/
     private String nombre;
@@ -11,7 +10,8 @@ public class Marca {
         this.nombre = nombre;
     }
 
-    /*Metodos*/
+    /*Metodos de la clase*/
+    
     public String getNombre() {
         return nombre;
     }

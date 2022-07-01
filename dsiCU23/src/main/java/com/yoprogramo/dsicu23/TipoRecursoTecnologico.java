@@ -1,7 +1,6 @@
 
 package com.yoprogramo.dsicu23;
 
-
 public class TipoRecursoTecnologico {
     private String nombre;
     private String descripcion;
@@ -12,7 +11,7 @@ public class TipoRecursoTecnologico {
         this.descripcion = descripcion;
     }   
     
-    /*Metodos*/
+    /*Metodos de la clase*/
     public String getNombre() {
         return nombre;
     }

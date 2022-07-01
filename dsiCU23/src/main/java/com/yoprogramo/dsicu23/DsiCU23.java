@@ -1,5 +1,4 @@
 
-
 package com.yoprogramo.dsicu23;
 
 import java.util.ArrayList;
@@ -12,7 +11,8 @@ import java.util.Date;
 public class DsiCU23 {
 
     public static void main(String[] args) throws InterruptedException {
-       /*CREACION DE LOS OBJETOS SIN BASE DE DATOS*/
+       
+        /*CREACION DE LOS OBJETOS SIN BASE DE DATOS*/
         TipoRecursoTecnologico tRTTodas = new TipoRecursoTecnologico("TODOS","");
         TipoRecursoTecnologico tRTMicro = new TipoRecursoTecnologico("MICROSCOPIO DE MEDICON","");
         TipoRecursoTecnologico tRTBalanza = new TipoRecursoTecnologico("BALANZA DE PRECISION","");
@@ -481,131 +481,87 @@ public class DsiCU23 {
         
         centroSpace.setAsignacionCientifico(asignaciones3);
         
-        
-        
-        
         PersonalCientifico cientifico4 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
       
-        /*Creamos la pantalla*/
+        /*Se crea la pantalla*/
         PantallaRegistrarReservaTurnoDeRT pantalla = new PantallaRegistrarReservaTurnoDeRT();
-        
-        
-        
-        /*Llamamos al metodo de interfaz*/
      
-        /*Creamos al gestor y se le setean los tipos de recursos que conforman su relacion*/
+        /*Se crea el gestor y se le setean los tipos de recursos que conforman su relacion*/
         GestorRegistrarReservaTurnoDeRT gestor = new GestorRegistrarReservaTurnoDeRT();  
         
-        /*Esto pasa nomas porq no tenemos base de datos, sino no se inicializarian y se traerian directamente*/
+        /*Setteos de datos necesarios hasta que se tenga una base de datos que los cargue directamente*/
         gestor.setTiposDeRecursosTecnologicos(arrayTipos);
         gestor.setRecursosTecnologicos(rec);
         gestor.setEstados(estados);
-        /*Inicia el Caso de Uso*/
         
+        /*Inicia el Caso de Uso*/
+        /*tomarOpcionReservarTurnoDeRecursoTecnologico()*/
         while(pantalla.getBtnOpcionReservarTurnoDeRT() == 0){
             pantalla.habilitarPantalla();
         }
     
-        /*Sale del bucle si se presiona el boton que setea la opcion btn reserva en 1*/
         if(pantalla.getBtnOpcionReservarTurnoDeRT() == 1){
             
             /*DEVUELVE UN ARRAY QUE CONTIENE TODOS LOS TIPOS DE RECURSO POSIBLES*/
             ArrayList <String> cmbTiposDeRecursos = gestor.opcionReservaTurnoDeRT(pantalla.getBtnOpcionReservarTurnoDeRT());
             
-            /*Declaro un string que devolvera la seleccion de tipo de recurso*/
-            
-            
-            /*Declaro el array que contendra los recursos de tipo elegido*/
-            ArrayList<RecursoTecnologico> recursos = new ArrayList <>();   
-            
+            /*array que contendra los recursos de tipo elegido*/
+            ArrayList<RecursoTecnologico> recursos = new ArrayList <>();  
             /*Seteo en la pantalla los tipos de recursos y llamo a la interfaz principal mandandole los tipos de recursos para que los pueda cargar*/
             pantalla.setCmbTiposDeRecursos(cmbTiposDeRecursos);
             
-            /*Loop que sigue pidiendo que se haga un set de tipo recurso hasta que no sea nulo*/            
+            /*Se muestra los tipos de RT*/            
             pantalla.mostrarTiposDeRecursos();
                 
-            
-            
-            System.out.print(pantalla.getTipoRecursoSeleccionado());
-            /*Mando al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/
-            
+            /*Se manda al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/            
             recursos = gestor.buscarRTDeTipoSeleccionado(pantalla.getTipoRecursoSeleccionado());
             
             /*LE PASA LOS RECURSOS A LA PANTALLA*/
             pantalla.setListaRT(recursos);
             
-            /*Buscar y obtener los datos de los recursos, ACA NO SE SI DEVOLVERIA UN ARRAY DE RECURSOS PORQUE TIENE Q CONTENER EL CENTRO AL QUE PERTENECE */
+            /*Se busca y obtiene los datos de los recursos*/
             ArrayList<RecursoTecnologico> recursosAll = gestor.buscarInformacionRecursosTecnologicos(recursos);
-           
-            /*OBTENIENDO DATOS PARA VER COMO SE PASAN A LA INTERFAZ PARA AGRUPARLOS POR EL CENTRO*/
-            for(int i=0;i<recursosAll.size();i++){
-                System.out.print(recursosAll.get(i).toString());           
-            }
+          
+            /*agruparRTPorCI() setea todos los centros que existen en un array list*/
+            pantalla.setCentrosInvestigacion(centrosArray);                             
             
-            /*HAY QUE VER COMO SE IMPLEMENTA LA DEPENDENCIA PARA PODER SABER Q RECURSOS TIENE UN CENTRO, ENTONCES LE MANDAS O UN ARRAY Q TIENE EL CENTRO O LOS CENTROS POR SEPARADOS*/
-            gestor.agruparRTPorCI();
-            
-            /*setea todos los centros que existen en un array list*/
-            pantalla.setCentrosInvestigacion(centrosArray);
-            
-                                 
             /*Lleva los recursos a la pantalla para que los pueda mostrar por centro de investigacion*/
             pantalla.mostrarRTAgrupados(recursosAll);
             
-            /*Al volver al MAIN ya se seteo en la pantalla el recurso seleccionado por lo q se lo pasamos al gestor*/
+            /*tomarRecursoTecnologicoSeleccionado()*/
             gestor.setRecursoTecnologicoSeleccionado(pantalla.getRecursoSeleccionado());
-            /*MUESTRA EL RECURSO SELECCIONADO POR CONSOLA */
-            System.out.print(pantalla.getRecursoSeleccionado().toString());
-           /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/
-           
-           
-           
+            
+            /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/ 
             gestor.setUsuarioLogueado(cientifico1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
             boolean estaLogueado = gestor.buscarUsuarioLogueado(cientifico1);
-            
-            
-            
-            
+                      
             /*VERIFICA QUE EL CIENTIFICO QUE LE MANDAS ES DEL MISMO CENTRO QUE EL RECURSO SELECCIONADO Y SI NO LO ES AVISA POR CONSOLA Y TERMINA TODO*/
             String correoInstitucionalCientifico = gestor.verificarCIDeCientifico(gestor.getUsuarioLogueado());
-            if(correoInstitucionalCientifico == "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO"){
-                System.out.print("\n");
-                System.out.print(correoInstitucionalCientifico);
-                System.exit(0);
-            
-            }
-            System.out.print("\n");
-            System.out.print(correoInstitucionalCientifico);
-            
+ 
             /*Obtiene la hora actual del sistema*/
             Date horaActual = gestor.obtenerFechaYHoraActual();
-            System.out.print("\n");
-            System.out.print(horaActual);
-            
             gestor.setFechaActual(horaActual);
             
-            /*TURNOS*/
+            /*se obtiene turnos del RT*/
             gestor.obtenerTurnosDelRTSeleccionado();
             
-            /*YA TENGO LOS TURNOS*/
-            
+            /*solicitarSeleccionDeTurno() y tomarTurnoSeleccionado()*/
             while(pantalla.getTurnoSeleccionado() == null){
                 pantalla.mostrarTurnos(gestor.getTurnoDelRT(),horaActual);
             }
             
+            //mostrarDeNotificacio() y solicitarOpcionDeNotificacio() lo hace por checkbox en pantalla
             
+            //solicitarConfirmacionReservaDeTurno() y tomatConfirmacionDeReservaDeTurno() lo hace con el boton Confrmar
             
+            //Realizar reserva
             gestor.reservarTurnoDeRT();
             
-            pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(gestor.getEsReservado(),pantalla.getTurnoSeleccionado(),gestor.getFechaActual());
+            //mostrarTurnoYRecursoSeleccionado()
+            pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(gestor.getEstReservado(),pantalla.getTurnoSeleccionado(),gestor.getFechaActual());
             
-            
-            gestor.generarNotificacionPorMail(correoInstitucionalCientifico,pantalla);
-            
-                             
-        }
-        else{
-            System.out.print("Funcion aun no desarrollada");
+            //enviar notificacion por mail
+            gestor.generarNotificacionPorMail(correoInstitucionalCientifico,pantalla);                   
         }
     }
 }

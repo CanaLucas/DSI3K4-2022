@@ -17,6 +17,7 @@ public class CambioEstadoRT {
     }
 
     /*Definicion de metodos de la clase*/
+    
     public Date getFechaHoraDesde() {
         return fechaHoraDesde;
     }
@@ -41,10 +42,9 @@ public class CambioEstadoRT {
         this.estado = estado;
     }    
     
-    /*Pregunta si tiene la fecha hasta nula para saber q es el ultimo cambio de estado y le pregunta a su objeto estado si es reservable*/
-    public boolean esUltimoCambioEstadoRT(){
-        return this.fechaHoraHasta == null && this.estado.getEsReservable();
-        
-    }
+    // Metodos de la clase que se usa en el CU23
     
+    public boolean esUltimoCambioEstadoRT(){
+        return this.fechaHoraHasta == null && this.estado.getEsReservable(); 
+    }
 }

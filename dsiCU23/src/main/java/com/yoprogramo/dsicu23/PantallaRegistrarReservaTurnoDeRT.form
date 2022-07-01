@@ -14,81 +14,70 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="seleccionarRT" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+              </Group>
               <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                  <Component id="cmbTiposRecursos" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="busquedaTipoRT" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="68" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="cbxMail" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="cbxWhatsapp" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane2" min="-2" pref="647" max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                  <Component id="comboBoxCentros" min="-2" pref="71" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="calendarTurnos" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="buscarTurnoFecha" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
                           <Component id="btnConfirmar" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Component id="btnCancelarr" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="cbxMail" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="cbxWhatsapp" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="calendarTurnos" min="-2" pref="219" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="buscarTurnoFecha" min="-2" max="-2" attributes="0"/>
-                                              <Component id="seleccionarRT" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane2" min="-2" pref="647" max="-2" attributes="0"/>
-                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                          <Component id="comboBoxCentros" min="-2" pref="71" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                                          <Component id="cmbTiposRecursos" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                          <Component id="busquedaTipoRT" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="153" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="cmbTiposRecursos" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="busquedaTipoRT" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="comboBoxCentros" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -96,33 +85,27 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" min="-2" pref="136" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane2" min="-2" pref="136" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="seleccionarRT" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                          <Component id="calendarTurnos" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="buscarTurnoFecha" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="seleccionarRT" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="calendarTurnos" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscarTurnoFecha" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane3" min="-2" pref="124" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
@@ -130,12 +113,12 @@
                           <Component id="cbxWhatsapp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnConfirmar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCancelarr" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="204" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -235,7 +218,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Seleccione Tipo de Notificaci&#xf3;n:"/>
+            <Property name="text" type="java.lang.String" value="Seleccionar Tipo de Notificaci&#xf3;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cbxMail">
@@ -356,32 +339,31 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="562" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="297" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
                           <Component id="confirmacionFinal" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="562" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
-                  <EmptySpace pref="94" max="32767" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="confirmacionFinal" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -397,7 +379,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Desea confirmar el turno del recurso"/>
+            <Property name="text" type="java.lang.String" value="&#xbf;Desea Confirmar la Reserva del siguente Turno del Recurso Seleccionado?"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -485,7 +467,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnOpcionReservar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Registrar Reserva Turno De Recurso Tecnologico"/>
+        <Property name="text" type="java.lang.String" value="Registrar Reserva Turno De Recurso Tecnol&#xf3;gico"/>
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnOpcionReservarMouseClicked"/>
