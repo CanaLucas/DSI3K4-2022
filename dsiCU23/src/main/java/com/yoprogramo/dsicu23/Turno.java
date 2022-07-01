@@ -77,5 +77,33 @@ public class Turno {
         }
         return this;
     } 
+
+    public void reservar(Estado reservado, Date fechaActual) {
+        CambioEstadoTurno ultimoCE = this.conocerEstadoActual();
+        if(ultimoCE != null){
+            ultimoCE.setFechaHoraHasta(fechaActual);
+            this.crearNuevoCambio(reservado,fechaActual);        
+        }
+        
+    }
+
+    public CambioEstadoTurno conocerEstadoActual() {
+        for(int i = 0; i < this.cambioEstadoTurno.size();i++){
+            if(this.cambioEstadoTurno.get(i).esUltimoCambioEstadoTurno()){
+                return this.cambioEstadoTurno.get(i);
+            }
+        
+        }
+        return null;
+    }
+
+    public void crearNuevoCambio(Estado e, Date fechaActual) {
+        CambioEstadoTurno nuevoCmbE = new CambioEstadoTurno(fechaActual,null,e);
+    }
+
+    
+
+    
+   
     
 }

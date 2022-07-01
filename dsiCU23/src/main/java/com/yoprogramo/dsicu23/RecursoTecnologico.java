@@ -188,6 +188,11 @@ public class RecursoTecnologico {
         return turnoRecurso;
     }
 
+    public void reservarTurnoSeleccionado(Estado reservado, Turno turnoSeleccionado, Date fechaActual) {
+        turnoSeleccionado.reservar(reservado,fechaActual);
+        
+    }
+
    
 
     

@@ -1,7 +1,6 @@
 
 package com.yoprogramo.dsicu23;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -16,10 +15,19 @@ public class GestorRegistrarReservaTurnoDeRT {
     private Date fechaActual; /*Te da tanto la fecha como la hora, no se si usar otro atributo mas*/
     private ArrayList<Turno> turnoDelRT;
     private Turno turnoSeleccionado;
-    private boolean esReservado;
+    private Estado esReservado;
     private String notificacionMail;
+    private ArrayList <Estado> estados;
     
     /*Constructor de la clase*/
+
+    public ArrayList<Estado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(ArrayList<Estado> estados) {
+        this.estados = estados;
+    }
 
     
     public String getTipoRecursoSeleccionado() {
@@ -94,13 +102,15 @@ public class GestorRegistrarReservaTurnoDeRT {
         this.turnoSeleccionado = turnoSeleccionado;
     }
 
-    public boolean isEsReservado() {
+    public Estado getEsReservado() {
         return esReservado;
     }
 
-    public void setEsReservado(boolean esReservado) {
+    public void setEsReservado(Estado esReservado) {
         this.esReservado = esReservado;
     }
+
+    
 
     public String getNotificacionMail() {
         return notificacionMail;
@@ -196,18 +206,30 @@ public class GestorRegistrarReservaTurnoDeRT {
         return "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO";
         
     }
-
-    public Date obtenerFechaYHoraActual() {        
-        Date horaActual = new Date(122,5,30,0,0);
+    /*CAMBIAR PARA QUE SI DE FECHA ACTUAL*/
+    public Date obtenerFechaYHoraActual() { 
+        
+        Date horaActual = new Date();
+        horaActual.getTime();
         return horaActual;        
     }
 
-    public void reservarTurnoDeRT(String ambito) {
-        this.buscarEstadoReservado(ambito);
+    public void reservarTurnoDeRT() {
+        this.buscarEstadoReservado();
+       
     }
 
-    private void buscarEstadoReservado(String ambito) {
+    private void buscarEstadoReservado() {
         /*Recorrer la clase estado con todos y preguntar si el string ambito es igual a el atributo ambito*/
+              
+        for(int i = 0; i < this.estados.size(); i++){
+            if(this.estados.get(i).esAmbitoTurno() && this.estados.get(i).esReservado()){
+                this.setEsReservado(this.estados.get(i));
+                
+                
+            }
+        }
+        
     }
     
     /*TRAE LOS TURNOS PARA EL RECURSO SELECCIONADO*/
@@ -216,4 +238,11 @@ public class GestorRegistrarReservaTurnoDeRT {
         this.turnoDelRT = this.recursoTecnologicoSeleccionado.buscarTurnosDesdeFechaYHoraActual(this.fechaActual);
         return this.turnoDelRT;    
     }  
+    public void generarNotificacionPorMail(String correoInstitucionalCientifico, PantallaRegistrarReservaTurnoDeRT pantalla) {
+        pantalla.pantallaConfirmacion(correoInstitucionalCientifico);
+    }
+
+    
+
+    
 }

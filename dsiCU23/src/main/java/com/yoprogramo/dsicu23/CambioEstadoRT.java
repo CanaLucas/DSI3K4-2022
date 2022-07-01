@@ -43,7 +43,7 @@ public class CambioEstadoRT {
     
     /*Pregunta si tiene la fecha hasta nula para saber q es el ultimo cambio de estado y le pregunta a su objeto estado si es reservable*/
     public boolean esUltimoCambioEstadoRT(){
-        return this.fechaHoraHasta == null && this.estado.EsReservable();
+        return this.fechaHoraHasta == null && this.estado.getEsReservable();
         
     }
     

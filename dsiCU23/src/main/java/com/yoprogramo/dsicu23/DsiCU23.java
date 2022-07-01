@@ -47,6 +47,8 @@ public class DsiCU23 {
         Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",true,true);
         Estado estadoTurnoReser = new Estado("Reservado","","Turno",false,true);
        
+        ArrayList <Estado> estados = new ArrayList<>();
+        
         Date desdeCET = new Date(122,6,28,0,0);
         
         CambioEstadoTurno cambioTurnoDispo = new CambioEstadoTurno(desdeCET,null,estadoTurnoDispo);
@@ -263,16 +265,21 @@ public class DsiCU23 {
         
        /*Creando las relaciones del recurso con un estado */
         Estado estadoDispo = new Estado("Disponible","","Recurso Tecnologico",true,false);
-        Estado estadoDispo2 = new Estado("Disponible","","Recurso Tecnologico",true,false);
-        Estado estadoDispo3 = new Estado("Disponible","","Recurso Tecnologico",true,false);
-        Estado estadoDispo4 = new Estado("Disponible","","Recurso Tecnologico",true,false);
         Estado estadoMante1 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
-        Estado estadoMante2 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
-        Estado estadoMante3 = new Estado("En Mantenimiento","","Recurso Tecnologico",true,false);
         Estado estadoManteCo = new Estado("Inicio Mantenimiento Correctivo","","Recurso Tecnologico",true,false);
         Estado estadoBajaT = new Estado("Baja Tecnica","","Recurso Tecnologico",false,false);
         Estado estadoBajaD = new Estado("Baja Definitiva","","Recurso Tecnologico",false,false);
         Estado estadoIngre = new Estado("Ingresado","","Recurso Tecnologico",false,false);
+        
+        estados.add(estadoDispo);
+        estados.add(estadoMante1);
+        estados.add(estadoManteCo);
+        estados.add(estadoBajaT);
+        estados.add(estadoBajaD);
+        estados.add(estadoIngre);
+        estados.add(estadoTurnoDispo);
+        estados.add(estadoTurnoPteConf);
+        estados.add(estadoTurnoReser);
         
         Date desde = new Date(122,6,22,0,0);
         Date hasta = new Date(122,6,30,0,0);
@@ -285,12 +292,12 @@ public class DsiCU23 {
         CambioEstadoRT cambioE4 = new CambioEstadoRT(desde,null,estadoBajaT);
         CambioEstadoRT cambioE5 = new CambioEstadoRT(desde,null,estadoBajaD);
         CambioEstadoRT cambioE6 = new CambioEstadoRT(desde,null,estadoDispo);
-        CambioEstadoRT cambioE7 = new CambioEstadoRT(desde,null,estadoDispo2);
-        CambioEstadoRT cambioE8 = new CambioEstadoRT(desde,null,estadoDispo3);
-        CambioEstadoRT cambioE9 = new CambioEstadoRT(desde,null,estadoDispo4);
+        CambioEstadoRT cambioE7 = new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE8 = new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE9 = new CambioEstadoRT(desde,null,estadoDispo);
         CambioEstadoRT cambioE10 = new CambioEstadoRT(desde,null,estadoIngre);
-        CambioEstadoRT cambioE11= new CambioEstadoRT(desde,null,estadoMante2);
-        CambioEstadoRT cambioE12 = new CambioEstadoRT(desde,hasta,estadoMante3);
+        CambioEstadoRT cambioE11= new CambioEstadoRT(desde,null,estadoMante1);
+        CambioEstadoRT cambioE12 = new CambioEstadoRT(desde,hasta,estadoMante1);
         CambioEstadoRT cambioE13 = new CambioEstadoRT(desde,hasta,estadoIngre);
         CambioEstadoRT cambioE14 = new CambioEstadoRT(desde,hasta,estadoIngre);
         CambioEstadoRT cambioE15 = new CambioEstadoRT(desde,hasta,estadoIngre);
@@ -482,6 +489,8 @@ public class DsiCU23 {
         /*Creamos la pantalla*/
         PantallaRegistrarReservaTurnoDeRT pantalla = new PantallaRegistrarReservaTurnoDeRT();
         
+        
+        
         /*Llamamos al metodo de interfaz*/
      
         /*Creamos al gestor y se le setean los tipos de recursos que conforman su relacion*/
@@ -490,7 +499,7 @@ public class DsiCU23 {
         /*Esto pasa nomas porq no tenemos base de datos, sino no se inicializarian y se traerian directamente*/
         gestor.setTiposDeRecursosTecnologicos(arrayTipos);
         gestor.setRecursosTecnologicos(rec);
-        
+        gestor.setEstados(estados);
         /*Inicia el Caso de Uso*/
         
         while(pantalla.getBtnOpcionReservarTurnoDeRT() == 0){
@@ -548,8 +557,15 @@ public class DsiCU23 {
             /*MUESTRA EL RECURSO SELECCIONADO POR CONSOLA */
             System.out.print(pantalla.getRecursoSeleccionado().toString());
            /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/
+           
+           
+           
             gestor.setUsuarioLogueado(cientifico1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
             boolean estaLogueado = gestor.buscarUsuarioLogueado(cientifico1);
+            
+            
+            
+            
             /*VERIFICA QUE EL CIENTIFICO QUE LE MANDAS ES DEL MISMO CENTRO QUE EL RECURSO SELECCIONADO Y SI NO LO ES AVISA POR CONSOLA Y TERMINA TODO*/
             String correoInstitucionalCientifico = gestor.verificarCIDeCientifico(gestor.getUsuarioLogueado());
             if(correoInstitucionalCientifico == "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO"){
@@ -573,20 +589,20 @@ public class DsiCU23 {
             
             /*YA TENGO LOS TURNOS*/
             
-            pantalla.mostrarTurnos(gestor.getTurnoDelRT());
-//            
-//            
-//            /*LA PARTE DEL AMBITO*/
-//            String amb = "Recurso tecnologico";
-//            
-//            //gestor.reservarTurnoDeRT(amb);
-//            
-//            /* Lo que muestra recursosAll
-//            for(int i=0;i<recursosAll.size();i++){
-//                System.out.print(recursosAll.get(i) + " ");
-//            
-//            }
-//            */                  
+            while(pantalla.getTurnoSeleccionado() == null){
+                pantalla.mostrarTurnos(gestor.getTurnoDelRT(),horaActual);
+            }
+            
+            
+            
+            gestor.reservarTurnoDeRT();
+            
+            pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(gestor.getEsReservado(),pantalla.getTurnoSeleccionado(),gestor.getFechaActual());
+            
+            
+            gestor.generarNotificacionPorMail(correoInstitucionalCientifico,pantalla);
+            
+                             
         }
         else{
             System.out.print("Funcion aun no desarrollada");

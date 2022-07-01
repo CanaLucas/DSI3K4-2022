@@ -11,6 +11,7 @@ public class Estado {
     private Boolean esCancelable;
     
     /*Definicion del constructor*/
+
     public Estado(String nombre, String descripcion, String ambito, Boolean esReservable, Boolean esCancelable) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -18,6 +19,9 @@ public class Estado {
         this.esReservable = esReservable;
         this.esCancelable = esCancelable;
     }
+
+    
+    
     
     /* Metodos de la clase*/
 
@@ -45,13 +49,23 @@ public class Estado {
         this.ambito = ambito;
     }
     /*Devuelve el valor del atributo es reservable*/
-    public Boolean EsReservable() {
+
+    public Boolean getEsReservable() {
         return esReservable;
     }
 
     public void setEsReservable(Boolean esReservable) {
         this.esReservable = esReservable;
     }
+
+    public boolean esReservado(){
+        if(this.getNombre() == "Reservado"){
+            return true;
+        }
+        return false;
+        
+    }
+    
 
     public Boolean getEsCancelable() {
         return esCancelable;
@@ -71,6 +85,14 @@ public class Estado {
         }
         return false;
     }
+
+    public boolean esAmbitoTurno() {
+        return this.getNombre() == "Turno";
+    }
+    
+     
+
+    
 
     
 }
