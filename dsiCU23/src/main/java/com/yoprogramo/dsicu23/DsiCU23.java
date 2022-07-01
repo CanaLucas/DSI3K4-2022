@@ -43,7 +43,7 @@ public class DsiCU23 {
         ArrayList <Turno> turnosRT19 = new ArrayList <>();
         ArrayList <Turno> turnosRT20 = new ArrayList <>();
         
-        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",true,true);
+        Estado estadoTurnoDispo = new Estado("Disponible","","Turno",true,false);
         Estado estadoTurnoPteConf = new Estado("Pendiente Confirmacion","","Turno",true,true);
         Estado estadoTurnoReser = new Estado("Reservado","","Turno",false,true);
        
@@ -61,9 +61,7 @@ public class DsiCU23 {
         
         cETDispo.add(cambioTurnoDispo);
         cETPteConf.add(cambioTurnoPteConf);
-        cETReser.add(cambioTurnoReser);
-       
-                
+        cETReser.add(cambioTurnoReser);            
         
        //definicion de Turnos desde el 4/7/2022 al 8/7/2022
        Date fechaGenTodosTurnos = new Date(122,6,27,8,0,0);
@@ -123,10 +121,10 @@ public class DsiCU23 {
         Date tRViIni = new Date(122,6,8,8,0,0);
         Date tRViFin = new Date(122,6,8,18,0,0);
         
-        Turno turnoRA = new Turno(fechaGenTodosTurnos,"Lunes",tRLuIni,tRLuFin,cETReser);
+        Turno turnoRA = new Turno(fechaGenTodosTurnos,"Lunes",tRLuIni,tRLuFin,cETDispo);
         Turno turnoRB = new Turno(fechaGenTodosTurnos,"Martes",tRMaIni,tRMaFin,cETReser);
         Turno turnoRC = new Turno(fechaGenTodosTurnos,"Miercoles",tRMiIni,tRMiFin,cETReser);
-        Turno turnoRD = new Turno(fechaGenTodosTurnos,"Jueves",tRJuIni,tRJuFin,cETDispo);
+        Turno turnoRD = new Turno(fechaGenTodosTurnos,"Jueves",tRJuIni,tRJuFin,cETPteConf);
         Turno turnoRE = new Turno(fechaGenTodosTurnos,"Viernes",tRViIni,tRViFin,cETDispo);
         
         turnosRT4.add(turnoRA);
@@ -170,8 +168,8 @@ public class DsiCU23 {
         Turno turnoCTA = new Turno(fechaGenTodosTurnos,"Lunes",tCTLuIni,tCTLuFin,cETDispo);
         Turno turnoCTB = new Turno(fechaGenTodosTurnos,"Martes",tCTMaIni,tCTMaFin,cETReser);
         Turno turnoCTC = new Turno(fechaGenTodosTurnos,"Miercoles",tCTMiIni,tCTMiFin,cETReser);
-        Turno turnoCTD = new Turno(fechaGenTodosTurnos,"Jueves",tCTJuIni,tCTJuFin,cETPteConf);
-        Turno turnoCTE = new Turno(fechaGenTodosTurnos,"Viernes",tCTViIni,tCTViFin,cETDispo);
+        Turno turnoCTD = new Turno(fechaGenTodosTurnos,"Jueves",tCTJuIni,tCTJuFin,cETDispo);
+        Turno turnoCTE = new Turno(fechaGenTodosTurnos,"Viernes",tCTViIni,tCTViFin,cETPteConf);
         
         turnosRT5.add(turnoCTA);
         turnosRT5.add(turnoCTB);
@@ -283,66 +281,70 @@ public class DsiCU23 {
         
         Date desde = new Date(122,6,22,0,0);
         Date hasta = new Date(122,6,30,0,0);
-        // hasta de los cambiosde estados de RT Tendrian q ser null ya que se suòne que estamos 
-        // definiendo los cambios de estados que tienen los RT, los que tienen null son los ultimos estados
         
         CambioEstadoRT cambioE1 = new CambioEstadoRT(desde,null,estadoDispo);
         CambioEstadoRT cambioE2 = new CambioEstadoRT(desde,null,estadoMante1);
         CambioEstadoRT cambioE3 = new CambioEstadoRT(desde,null,estadoManteCo);
-        CambioEstadoRT cambioE4 = new CambioEstadoRT(desde,null,estadoBajaT);
-        CambioEstadoRT cambioE5 = new CambioEstadoRT(desde,null,estadoBajaD);
+        CambioEstadoRT cambioE4 = new CambioEstadoRT(desde,null,estadoBajaT);// no debe aparecer
+        CambioEstadoRT cambioE5 = new CambioEstadoRT(desde,null,estadoBajaD);// no debe aparecer
         CambioEstadoRT cambioE6 = new CambioEstadoRT(desde,null,estadoDispo);
         CambioEstadoRT cambioE7 = new CambioEstadoRT(desde,null,estadoDispo);
         CambioEstadoRT cambioE8 = new CambioEstadoRT(desde,null,estadoDispo);
         CambioEstadoRT cambioE9 = new CambioEstadoRT(desde,null,estadoDispo);
-        CambioEstadoRT cambioE10 = new CambioEstadoRT(desde,null,estadoIngre);
+        CambioEstadoRT cambioE10 = new CambioEstadoRT(desde,null,estadoIngre); // no debe aparecer
         CambioEstadoRT cambioE11= new CambioEstadoRT(desde,null,estadoMante1);
-        CambioEstadoRT cambioE12 = new CambioEstadoRT(desde,hasta,estadoMante1);
-        CambioEstadoRT cambioE13 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE14 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE15 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE16= new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE17 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE18 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE19 = new CambioEstadoRT(desde,hasta,estadoIngre);
-        CambioEstadoRT cambioE20 = new CambioEstadoRT(desde,hasta,estadoIngre);
+        CambioEstadoRT cambioE12 = new CambioEstadoRT(desde,null,estadoManteCo);
+        CambioEstadoRT cambioE13 = new CambioEstadoRT(desde,null,estadoMante1);
+        CambioEstadoRT cambioE14 = new CambioEstadoRT(desde,null,estadoBajaT);// no debe aparecer
+        CambioEstadoRT cambioE15 = new CambioEstadoRT(desde,null,estadoMante1);
+        CambioEstadoRT cambioE16= new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE17 = new CambioEstadoRT(desde,null,estadoDispo);
+        CambioEstadoRT cambioE18 = new CambioEstadoRT(desde,null,estadoBajaD);// no debe aparecer
+        CambioEstadoRT cambioE19 = new CambioEstadoRT(desde,hasta,estadoIngre);// no debe aparecer
+        CambioEstadoRT cambioE20 = new CambioEstadoRT(desde,hasta,estadoIngre);// no debe aparecer
         
         /*Arrays para setearles a los muchos cambios de estado que tengan los recursos*/
         ArrayList <CambioEstadoRT> estadosRecurso1 = new ArrayList();
         estadosRecurso1.add(cambioE1);        
         ArrayList <CambioEstadoRT> estadosRecurso2 = new ArrayList();
-        estadosRecurso2.add(cambioE3);
+        estadosRecurso2.add(cambioE2);
         ArrayList <CambioEstadoRT> estadosRecurso3 = new ArrayList();
-        estadosRecurso3.add(cambioE4);
+        estadosRecurso3.add(cambioE3);
         ArrayList <CambioEstadoRT> estadosRecurso4 = new ArrayList();
-        estadosRecurso4.add(cambioE5);
+        estadosRecurso4.add(cambioE4);
         ArrayList <CambioEstadoRT> estadosRecurso5 = new ArrayList();
-        estadosRecurso5.add(cambioE7);        
+        estadosRecurso5.add(cambioE5);        
         ArrayList <CambioEstadoRT> estadosRecurso6 = new ArrayList();
         estadosRecurso6.add(cambioE6);
         ArrayList <CambioEstadoRT> estadosRecurso7 = new ArrayList();
-        estadosRecurso7.add(cambioE10);
+        estadosRecurso7.add(cambioE7);
         ArrayList <CambioEstadoRT> estadosRecurso8 = new ArrayList();
-        estadosRecurso8.add(cambioE9);
+        estadosRecurso8.add(cambioE8);
         ArrayList <CambioEstadoRT> estadosRecurso9 = new ArrayList();
-        estadosRecurso9.add(cambioE2);
+        estadosRecurso9.add(cambioE9);
         ArrayList <CambioEstadoRT> estadosRecurso10 = new ArrayList();
-        estadosRecurso10.add(cambioE8);
+        estadosRecurso10.add(cambioE10);
         ArrayList <CambioEstadoRT> estadosRecurso11 = new ArrayList();
-        estadosRecurso11.add(cambioE9);
+        estadosRecurso11.add(cambioE11);
         ArrayList <CambioEstadoRT> estadosRecurso12 = new ArrayList();
-        estadosRecurso12.add(cambioE10);
-//        ArrayList <CambioEstadoRT> estadosRecurso13 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso14 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso15 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso16 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso17 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso18 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso19 = new ArrayList();
-//        ArrayList <CambioEstadoRT> estadosRecurso20 = new ArrayList();
-        
-        
-        
+        estadosRecurso12.add(cambioE12);
+        ArrayList <CambioEstadoRT> estadosRecurso13 = new ArrayList();
+        estadosRecurso13.add(cambioE13);
+        ArrayList <CambioEstadoRT> estadosRecurso14 = new ArrayList();
+        estadosRecurso14.add(cambioE14);
+        ArrayList <CambioEstadoRT> estadosRecurso15 = new ArrayList();
+        estadosRecurso15.add(cambioE15);
+        ArrayList <CambioEstadoRT> estadosRecurso16 = new ArrayList();
+        estadosRecurso16.add(cambioE16);
+        ArrayList <CambioEstadoRT> estadosRecurso17 = new ArrayList();
+        estadosRecurso17.add(cambioE17);
+        ArrayList <CambioEstadoRT> estadosRecurso18 = new ArrayList();
+        estadosRecurso18.add(cambioE18);
+        ArrayList <CambioEstadoRT> estadosRecurso19 = new ArrayList();
+        estadosRecurso19.add(cambioE19);
+        ArrayList <CambioEstadoRT> estadosRecurso20 = new ArrayList();
+        estadosRecurso20.add(cambioE20);
+
        /*Creando las relaciones del Marca y Modelo */
         Marca marcaShi = new Marca("Shidmazu");
         Marca marcaNikon = new Marca("Nikon");
@@ -373,53 +375,53 @@ public class DsiCU23 {
         RecursoTecnologico rt2 = new RecursoTecnologico(2,null,null,null,null,null,modelNikon,tRTMicro,estadosRecurso2,turnosRTMicro,centroSern);        
         RecursoTecnologico rt3 = new RecursoTecnologico(3,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso3,turnosRTMicro,centroNasa);
         RecursoTecnologico rt4 = new RecursoTecnologico(4,null,null,null,null,null,modelNikon,tRTResona,estadosRecurso4,turnosRT4,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso5,turnosRT5,centroSpace); 
+        RecursoTecnologico rt5 = new RecursoTecnologico(5,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso5,turnosRT5,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
         RecursoTecnologico rt6 = new RecursoTecnologico(6,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso6,turnosRTMicro,centroSern);
-        RecursoTecnologico rt7 = new RecursoTecnologico(7,null,null,null,null,null,modelSie,tRTBalanza,estadosRecurso7,null,centroNasa);
+        //RecursoTecnologico rt7 = new RecursoTecnologico(7,null,null,null,null,null,modelSie,tRTBalanza,estadosRecurso7,turnosRTBalan,centroNasa);
         RecursoTecnologico rt8 = new RecursoTecnologico(8,null,null,null,null,null,modelSie,tRTResona,estadosRecurso8,turnosRT8,centroSpace);
         RecursoTecnologico rt9 = new RecursoTecnologico(9,null,null,null,null,null,modelShi,tRTEqCompu,estadosRecurso9,turnosRT9,centroNasa);
-        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelGramPre,tRTMicro,estadosRecurso10,turnosRTMicro,centroNasa);
-//        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,estadosRecurso11,turnosRTMicro,centroSern);
-//        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso12,turnosRT12, centroSern);        
-//        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso13,turnosRTMicro, centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-//        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,estadosRecurso14,turnosRT14,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
-//        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,estadosRecurso15,turnosRT15,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
-//        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso16,turnosRTMicro,centroSern);
-//        RecursoTecnologico rt17 = new RecursoTecnologico(17,null,null,null,null,null,modelGramPre,tRTBalanza,estadosRecurso17,null,centroNasa);
-//        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,estadosRecurso18,turnosRT18,centroSpace);
-//        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,estadosRecurso19,turnosRT19,centroNasa);
-//        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso20,turnosRT20,centroNasa);
+        RecursoTecnologico rt10 = new RecursoTecnologico(10,null,null,null,null,null,modelGramPre,tRTMicro,estadosRecurso10,turnosRTMicro,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt11 = new RecursoTecnologico(11,null,null,null,null,null,modelShi,tRTMicro,estadosRecurso11,turnosRTMicro,centroSern);
+        RecursoTecnologico rt12 = new RecursoTecnologico(12,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso12,turnosRT12, centroSern);        
+        RecursoTecnologico rt13 = new RecursoTecnologico(13,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso13,turnosRTMicro, centroSern); 
+        RecursoTecnologico rt14 = new RecursoTecnologico(14,null,null,null,null,null,modelGramPre,tRTResona,estadosRecurso14,turnosRT14,centroSern); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt15 = new RecursoTecnologico(15,null,null,null,null,null,modelNikon,tRTEqCompu,estadosRecurso15,turnosRT15,centroSpace);
+        RecursoTecnologico rt16 = new RecursoTecnologico(16,null,null,null,null,null,modelGenElec,tRTMicro,estadosRecurso16,turnosRTMicro,centroSern);
+        //RecursoTecnologico rt17 = new RecursoTecnologico(17,null,null,null,null,null,modelGramPre,tRTBalanza,estadosRecurso17,turnosRTBalan,centroSern);
+        RecursoTecnologico rt18 = new RecursoTecnologico(18,null,null,null,null,null,modelGenElec,tRTResona,estadosRecurso18,turnosRT18,centroSpace); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt19 = new RecursoTecnologico(19,null,null,null,null,null,modelShi,tRTResona,estadosRecurso19,turnosRT19,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
+        RecursoTecnologico rt20 = new RecursoTecnologico(20,null,null,null,null,null,modelOpt,tRTCamTer,estadosRecurso20,turnosRT20,centroNasa); /*NO DEBERIA PODER RESERVARSE*/
 //        
        /*Creando relacion RTs con Centros */
         ArrayList <RecursoTecnologico> rtCentroSern= new ArrayList<>();
         rtCentroSern.add(rt1);
         rtCentroSern.add(rt2);
         rtCentroSern.add(rt6);
-//        rtCentroSern.add(rt11);
-//        rtCentroSern.add(rt12);
-//        rtCentroSern.add(rt16);
-        
+        rtCentroSern.add(rt11);
+        rtCentroSern.add(rt12);
+        rtCentroSern.add(rt16);
+        rtCentroSern.add(rt13);
+        rtCentroSern.add(rt14);
+        //rtCentroSern.add(rt17);
+
         centroSern.setRecursosTecnologicos(rtCentroSern);       
         
         ArrayList <RecursoTecnologico> rtCentroNasa= new ArrayList<>();
         rtCentroNasa.add(rt3);
         rtCentroNasa.add(rt4);
-        rtCentroNasa.add(rt7);
+        //rtCentroNasa.add(rt7);
         rtCentroNasa.add(rt9);
-        rtCentroNasa.add(rt10);
-//        rtCentroNasa.add(rt13);
-//        rtCentroNasa.add(rt14);
-//        rtCentroNasa.add(rt17);
-//        rtCentroNasa.add(rt19);
-//        rtCentroNasa.add(rt20);
+        rtCentroNasa.add(rt10);     
+        rtCentroNasa.add(rt19);
+        rtCentroNasa.add(rt20);
         
         centroNasa.setRecursosTecnologicos(rtCentroNasa);
         
         ArrayList <RecursoTecnologico> rtCentroSpace= new ArrayList<>();
         rtCentroSpace.add(rt5);
         rtCentroSpace.add(rt8);
-//        rtCentroSpace.add(rt15);
-//        rtCentroSpace.add(rt18);
+        rtCentroSpace.add(rt15);
+        rtCentroSpace.add(rt18);
         
         centroSpace.setRecursosTecnologicos(rtCentroSpace);
        
@@ -431,58 +433,42 @@ public class DsiCU23 {
         rec.add(rt4);
         rec.add(rt5);
         rec.add(rt6);
-        rec.add(rt7);
+        //rec.add(rt7);
         rec.add(rt8);
         rec.add(rt9);
         rec.add(rt10);
-//        rec.add(rt11);
-//        rec.add(rt12);
-//        rec.add(rt13);
-//        rec.add(rt14);
-//        rec.add(rt15);
-//        rec.add(rt16);
-//        rec.add(rt17);
-//        rec.add(rt18);
-//        rec.add(rt19);
-//        rec.add(rt20);
+        rec.add(rt11);
+        rec.add(rt12);
+        rec.add(rt13);
+        rec.add(rt14);
+        rec.add(rt15);
+        rec.add(rt16);
+        //rec.add(rt17);
+        rec.add(rt18);
+        rec.add(rt19);
+        rec.add(rt20);
         
        /*Creando Personal Cientifico/AsignacionT con Centros */
         ArrayList <AsignacionCientificoDelCI> asignaciones = new ArrayList <>();
-        
         PersonalCientifico cientifico1 = new PersonalCientifico(1,"Bruce","Wayne",39393939,"brucewayne@gmail.com","iambatman@gmail.com",351351523);
-        
         AsignacionCientificoDelCI asignacion1 = new AsignacionCientificoDelCI(desde,null,cientifico1);
-        
         asignaciones.add(asignacion1);       
-        
         centroSern.setAsignacionCientifico(asignaciones);
         
         /*Otro Cientifico asociado a sus centro NASA*/
-        
         ArrayList <AsignacionCientificoDelCI> asignaciones2 = new ArrayList <>();
-        
-        PersonalCientifico cientifico2 = new PersonalCientifico(2,"Alfred","Lord",236547891,"alfredlord@gmail.com","eljefe@gmail.com",351351232);
-        
+        PersonalCientifico cientifico2 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
         AsignacionCientificoDelCI asignacion2 = new AsignacionCientificoDelCI(desde,null,cientifico2);
-        
         asignaciones2.add(asignacion2);       
-        
         centroNasa.setAsignacionCientifico(asignaciones2);
         
         /*Otro Cientifico asociado a sus centro SPACE X*/
-        
         ArrayList <AsignacionCientificoDelCI> asignaciones3 = new ArrayList <>();
-        
         PersonalCientifico cientifico3 = new PersonalCientifico(3,"Thomas","Wayne",31394839,"thomaswayne@gmail.com","iamjoker@gmail.com",35145823);
-        
         AsignacionCientificoDelCI asignacion3 = new AsignacionCientificoDelCI(desde,null,cientifico3);
-        
         asignaciones3.add(asignacion3);       
-        
-        centroSpace.setAsignacionCientifico(asignaciones3);
-        
-        PersonalCientifico cientifico4 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
       
+        /*---------------------------------------------------------------------------------------------------------------------------------------------*/
         /*Se crea la pantalla*/
         PantallaRegistrarReservaTurnoDeRT pantalla = new PantallaRegistrarReservaTurnoDeRT();
      
