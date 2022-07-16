@@ -11,16 +11,19 @@ public class PersonalCientifico {
     private String correoElectronicoInstitucional;
     private String correoElectronicoPersonal;
     private Integer telefonoCelular;
+    private Usuario usuario;
    
     /*Constructor de la clase*/
-    public PersonalCientifico(Integer legajo, String nombre, String apellido, Integer numeroDocumento, String correoElectronicoInstitucional, String correoElectronicoPersonal, Integer telefonoCelular) {
+
+    public PersonalCientifico(Integer legajo, String nombre, String apellido, Integer numeroDocumento, String correoElectronicoInstitucional, String correoElectronicoPersonal, Integer telefonoCelular, Usuario usuario) {
         this.legajo = legajo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.numeroDocumento = numeroDocumento;
         this.correoElectronicoInstitucional = correoElectronicoInstitucional;
         this.correoElectronicoPersonal = correoElectronicoPersonal;
-        this.telefonoCelular = telefonoCelular;  
+        this.telefonoCelular = telefonoCelular;
+        this.usuario = usuario;
     }
     
     /*Metodos de la clase*/
@@ -82,5 +85,7 @@ public class PersonalCientifico {
     }
     
     // Metodos de la clase que se usa en el CU23
-    public void esUsuarioLegueado(){}
+    public boolean esUsuarioLogueado(Usuario a){
+        return a.equals(usuario);
+    }
 }

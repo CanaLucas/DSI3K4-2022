@@ -45,6 +45,6 @@ public class CambioEstadoRT {
     // Metodos de la clase que se usa en el CU23
     
     public boolean esUltimoCambioEstadoRT(){
-        return this.fechaHoraHasta == null && this.estado.getEsReservable(); 
+        return this.fechaHoraHasta == null; 
     }
 }

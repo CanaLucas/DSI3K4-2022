@@ -13,10 +13,6 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * 
- */
 public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
     private int btnOpcionReservarTurnoDeRT;
     private ArrayList <String> cmbTiposDeRecursos;
@@ -109,7 +105,6 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         btnOpcionReservar.addActionListener(click);  
     }
         
-   
     public void mostrarTiposDeRecursos() throws InterruptedException{ 
              
         this.interfazSeleccionRT.setBounds(300,150, 800, 700);
@@ -134,7 +129,7 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         }   
     }
     
-    /*solicitarSeleccionTipoDeRecurso() y  tomarSeleccionDeTipoDeRecurso*/
+    /*solicitarSeleccionTipoDeRecurso() y  tomarSeleccionDeTipoDeRecurso*///(7)y(8)
     public void solicitarSeleccionTipoDeRecurso(String a) {
         this.setTipoRecursoSeleccionado(a);    
     }
@@ -162,7 +157,7 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
             }
         }   
         
-        /*solicitarSeleccionDeRT()*/
+        /*solicitarSeleccionDeRT()*/ //(28)y(29)y(30)
         while(this.recursoSeleccionado == null){
             ActionListener recursoSeleccionado = new ActionListener() {
                 @Override

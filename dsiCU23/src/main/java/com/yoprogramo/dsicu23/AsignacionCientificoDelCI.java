@@ -44,12 +44,11 @@ public class AsignacionCientificoDelCI {
     
     // Metodos de la clase que se usa en el CU23
     
-    public String esCientificoActivo(){
+    public String esCientificoActivo(Usuario a){
           
         /*Verifica que el cientifico siga en el centro ya que no tiene una fecha hasta*/  
-        if(this.getFechaHasta() == null){
-            String correo = this.personalCientifico.getCorreoElectronicoInstitucional();
-            return correo;
+        if(this.getFechaHasta() == null && personalCientifico.esUsuarioLogueado(a)==true){
+            return personalCientifico.getCorreoElectronicoInstitucional();
         }
         return null;
     }

@@ -70,4 +70,8 @@ public class Estado {
     public boolean esAmbitoTurno() {
         return "Turno".equals(this.getNombre());
     } 
+
+    public boolean esReservable() {
+        return this.getEsReservable()==true;
+    }
 }

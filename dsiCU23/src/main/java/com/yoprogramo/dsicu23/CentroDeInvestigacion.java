@@ -208,14 +208,15 @@ public class CentroDeInvestigacion {
        return false;
    }
 
-    public String misCientificosActivos(PersonalCientifico a) {
+    public String misCientificosActivos(Usuario a) {
         
         for(int i =0; i < this.asignacionCientifico.size();i++){
             
-            if(this.asignacionCientifico.get(i).esCientificoActivo() != null){
-                return this.asignacionCientifico.get(i).esCientificoActivo();
+            if(this.asignacionCientifico.get(i).esCientificoActivo(a) != null){
+                return this.asignacionCientifico.get(i).esCientificoActivo(a);
             }
+            break;
         }
-        return "No se encuentra conectado.";
+        return null;
     }
 }

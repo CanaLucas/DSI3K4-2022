@@ -45,9 +45,6 @@ public class CambioEstadoTurno {
     
     public boolean esUltimoCambioEstadoTurno(){
         
-        if(this.getFechaHoraHasta() == null){
-            return true;
-        }
-        return false;
+        return this.getFechaHoraHasta() == null;
     }
 }

@@ -134,16 +134,25 @@ public class RecursoTecnologico {
         
         /* Se recorren todos los cambios de estado que tenga el recurso y encuentro el actual sabiendo q no tiene fecha hasta*/
         for(int i = 0; i < this.cambioEstado.size();i++){
-            return this.cambioEstado.get(i).esUltimoCambioEstadoRT(); 
-        }       
+            /*esUltimoCambioDeEstado() (13) */
+           if (this.cambioEstado.get(i).esUltimoCambioEstadoRT()== true)
+           {
+               //esReservable() (14)
+               if(this.cambioEstado.get(i).getEstado().esReservable() == true)
+               {
+                   return true;
+                }   
+           }
+        }
         return false;
-    }
-    
+    }       
+       
     public CambioEstadoRT ultimoCambioEstado() {
+        //devulve el ultimo cambio de estado
         for(int i = 0; i < this.cambioEstado.size();i++){
             
             if(this.cambioEstado.get(i).esUltimoCambioEstadoRT()){
-                return this.cambioEstado.get(i);  
+                return this.cambioEstado.get(i); ///(23) 
             }
         }
         return null;
@@ -151,10 +160,9 @@ public class RecursoTecnologico {
     
     public RecursoTecnologico mostrarRT() {
         /*Se muestra la info para el RT*/      
-        this.getNumeroRT();
-        //miModeloYmarca()
-        this.getModelo().getNombre(); 
-        this.ultimoCambioEstado();
+        this.getNumeroRT(); //(17)
+        this.miModeloYMarca(); //(18)
+        this.ultimoCambioEstado();// (22)
         this.getCentro();
         return this;
     }
@@ -182,5 +190,15 @@ public class RecursoTecnologico {
         turnoSeleccionado.reservar(reservado,fechaActual);
     }
     
-    //falta esCientificoDeMiCI()
+    public void miModeloYMarca() {
+        modelo.getNombre();//(19)
+        modelo.conocerMarca();//(20)
+    }
+
+    public String esCientificoDeMiCI(Usuario user) {
+        if (centro.misCientificosActivos(user) != null) {
+            return centro.misCientificosActivos(user);
+        }
+        return null;
+    }
 }

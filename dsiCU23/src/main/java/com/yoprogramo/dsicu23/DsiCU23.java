@@ -4,10 +4,6 @@ package com.yoprogramo.dsicu23;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * 
- */
 public class DsiCU23 {
 
     public static void main(String[] args) throws InterruptedException {
@@ -66,26 +62,26 @@ public class DsiCU23 {
        //definicion de Turnos desde el 4/7/2022 al 8/7/2022
        Date fechaGenTodosTurnos = new Date(122,6,27,8,0,0);
        // Turnos para RT tipo Microscopios
-        Date tMLuIni1 = new Date(122,6,4,8,0,0);
-        Date tMLuFin1 = new Date(122,6,4,12,0,0); 
-        Date tMLuIni2 = new Date(122,6,4,14,0,0);
-        Date tMLuFin2 = new Date(122,6,4,18,0,0); 
-        Date tMMaIni1 = new Date(122,6,5,8,0,0);
-        Date tMMaFin1 = new Date(122,6,5,12,0,0); 
-        Date tMMaIni2 = new Date(122,6,5,14,0,0);
-        Date tMMaFin2 = new Date(122,6,5,18,0,0);
-        Date tMMiIni1 = new Date(122,6,6,8,0,0);
-        Date tMMiFin1 = new Date(122,6,6,12,0,0); 
-        Date tMMiIni2 = new Date(122,6,6,14,0,0);
-        Date tMMiFin2 = new Date(122,6,6,18,0,0);
-        Date tMJuIni1 = new Date(122,6,7,8,0,0);
-        Date tMJuFin1 = new Date(122,6,7,12,0,0); 
-        Date tMJuIni2 = new Date(122,6,7,14,0,0);
-        Date tMJuFin2 = new Date(122,6,7,18,0,0);
-        Date tMViIni1 = new Date(122,6,8,8,0,0);
-        Date tMViFin1 = new Date(122,6,8,12,0,0); 
-        Date tMViIni2 = new Date(122,6,8,14,0,0);
-        Date tMViFin2 = new Date(122,6,8,18,0,0);
+        Date tMLuIni1 = new Date(122,7,18,8,0,0);
+        Date tMLuFin1 = new Date(122,7,18,12,0,0); 
+        Date tMLuIni2 = new Date(122,7,18,14,0,0);
+        Date tMLuFin2 = new Date(122,7,18,18,0,0); 
+        Date tMMaIni1 = new Date(122,8,2,8,0,0);
+        Date tMMaFin1 = new Date(122,8,2,12,0,0); 
+        Date tMMaIni2 = new Date(122,8,2,14,0,0);
+        Date tMMaFin2 = new Date(122,8,2,18,0,0);
+        Date tMMiIni1 = new Date(122,8,3,8,0,0);
+        Date tMMiFin1 = new Date(122,8,3,12,0,0); 
+        Date tMMiIni2 = new Date(122,8,3,14,0,0);
+        Date tMMiFin2 = new Date(122,8,3,18,0,0);
+        Date tMJuIni1 = new Date(122,8,4,8,0,0);
+        Date tMJuFin1 = new Date(122,8,4,12,0,0); 
+        Date tMJuIni2 = new Date(122,8,4,14,0,0);
+        Date tMJuFin2 = new Date(122,8,4,18,0,0);
+        Date tMViIni1 = new Date(122,8,5,8,0,0);
+        Date tMViFin1 = new Date(122,8,5,12,0,0); 
+        Date tMViIni2 = new Date(122,8,5,14,0,0);
+        Date tMViFin2 = new Date(122,8,5,18,0,0);
         
         Turno turnoMA1 = new Turno(fechaGenTodosTurnos,"Lunes",tMLuIni1,tMLuFin1,cETReser);
         Turno turnoMB1 = new Turno(fechaGenTodosTurnos,"Martes",tMMaIni1,tMMaFin1,cETDispo);
@@ -110,16 +106,16 @@ public class DsiCU23 {
         turnosRTMicro.add(turnoME2);
         
        // Turnos para RT tipo Resonador
-        Date tRLuIni = new Date(122,6,4,8,0,0);
-        Date tRLuFin = new Date(122,6,4,18,0,0); 
-        Date tRMaIni = new Date(122,6,5,8,0,0);
-        Date tRMaFin = new Date(122,6,5,18,0,0); 
-        Date tRMiIni = new Date(122,6,6,8,0,0);
-        Date tRMiFin = new Date(122,6,6,18,0,0); 
-        Date tRJuIni = new Date(122,6,7,8,0,0);
-        Date tRJuFin = new Date(122,6,7,18,0,0); 
-        Date tRViIni = new Date(122,6,8,8,0,0);
-        Date tRViFin = new Date(122,6,8,18,0,0);
+        Date tRLuIni = new Date(122,8,1,8,0,0);
+        Date tRLuFin = new Date(122,8,1,18,0,0); 
+        Date tRMaIni = new Date(122,8,2,8,0,0);
+        Date tRMaFin = new Date(122,8,2,18,0,0); 
+        Date tRMiIni = new Date(122,8,3,8,0,0);
+        Date tRMiFin = new Date(122,8,3,18,0,0); 
+        Date tRJuIni = new Date(122,8,4,8,0,0);
+        Date tRJuFin = new Date(122,8,4,18,0,0); 
+        Date tRViIni = new Date(122,8,5,8,0,0);
+        Date tRViFin = new Date(122,8,5,18,0,0);
         
         Turno turnoRA = new Turno(fechaGenTodosTurnos,"Lunes",tRLuIni,tRLuFin,cETDispo);
         Turno turnoRB = new Turno(fechaGenTodosTurnos,"Martes",tRMaIni,tRMaFin,cETReser);
@@ -154,16 +150,16 @@ public class DsiCU23 {
         turnosRT19.add(turnoRE);
         
        // Turnos para RT tipo Camara Termica
-        Date tCTLuIni = new Date(122,6,4,8,0,0);
-        Date tCTLuFin = new Date(122,6,4,18,0,0); 
-        Date tCTMaIni = new Date(122,6,5,8,0,0);
-        Date tCTMaFin = new Date(122,6,5,18,0,0); 
-        Date tCTMiIni = new Date(122,6,6,8,0,0);
-        Date tCTMiFin = new Date(122,6,6,18,0,0); 
-        Date tCTJuIni = new Date(122,6,7,8,0,0);
-        Date tCTJuFin = new Date(122,6,7,18,0,0); 
-        Date tCTViIni = new Date(122,6,8,8,0,0);
-        Date tCTViFin = new Date(122,6,8,18,0,0); 
+        Date tCTLuIni = new Date(122,8,1,8,0,0);
+        Date tCTLuFin = new Date(122,8,1,18,0,0); 
+        Date tCTMaIni = new Date(122,8,2,8,0,0);
+        Date tCTMaFin = new Date(122,8,2,18,0,0); 
+        Date tCTMiIni = new Date(122,8,3,8,0,0);
+        Date tCTMiFin = new Date(122,8,3,18,0,0); 
+        Date tCTJuIni = new Date(122,8,4,8,0,0);
+        Date tCTJuFin = new Date(122,8,4,18,0,0); 
+        Date tCTViIni = new Date(122,8,5,8,0,0);
+        Date tCTViFin = new Date(122,8,5,18,0,0); 
        
         Turno turnoCTA = new Turno(fechaGenTodosTurnos,"Lunes",tCTLuIni,tCTLuFin,cETDispo);
         Turno turnoCTB = new Turno(fechaGenTodosTurnos,"Martes",tCTMaIni,tCTMaFin,cETReser);
@@ -188,26 +184,26 @@ public class DsiCU23 {
         turnosRT20.add(turnoCTE);
         
        // Turnos para RT tipo Balanza
-        Date tBLuIni1 = new Date(122,7,4,8,0,0);
-        Date tBLuFin1 = new Date(122,7,4,12,0,0); 
-        Date tBLuIni2 = new Date(122,7,4,14,0,0);
-        Date tBLuFin2 = new Date(122,7,4,18,0,0); 
-        Date tBMaIni1 = new Date(122,7,5,8,0,0);
-        Date tBMaFin1 = new Date(122,7,5,12,0,0); 
-        Date tBMaIni2 = new Date(122,7,5,14,0,0);
-        Date tBMaFin2 = new Date(122,7,5,18,0,0);
-        Date tBMiIni1 = new Date(122,7,6,8,0,0);
-        Date tBMiFin1 = new Date(122,7,6,12,0,0); 
-        Date tBMiIni2 = new Date(122,7,6,14,0,0);
-        Date tBMiFin2 = new Date(122,7,6,18,0,0);
-        Date tBJuIni1 = new Date(122,7,7,8,0,0);
-        Date tBJuFin1 = new Date(122,7,7,12,0,0); 
-        Date tBJuIni2 = new Date(122,7,7,14,0,0);
-        Date tBJuFin2 = new Date(122,7,7,18,0,0);
-        Date tBViIni1 = new Date(122,7,8,8,0,0);
-        Date tBViFin1 = new Date(122,7,8,12,0,0); 
-        Date tBViIni2 = new Date(122,7,8,14,0,0);
-        Date tBViFin2 = new Date(122,7,8,18,0,0); 
+        Date tBLuIni1 = new Date(122,8,1,8,0,0);
+        Date tBLuFin1 = new Date(122,8,1,12,0,0); 
+        Date tBLuIni2 = new Date(122,8,1,14,0,0);
+        Date tBLuFin2 = new Date(122,8,1,18,0,0); 
+        Date tBMaIni1 = new Date(122,8,2,8,0,0);
+        Date tBMaFin1 = new Date(122,8,2,12,0,0); 
+        Date tBMaIni2 = new Date(122,8,2,14,0,0);
+        Date tBMaFin2 = new Date(122,8,2,18,0,0);
+        Date tBMiIni1 = new Date(122,8,3,8,0,0);
+        Date tBMiFin1 = new Date(122,8,3,12,0,0); 
+        Date tBMiIni2 = new Date(122,8,3,14,0,0);
+        Date tBMiFin2 = new Date(122,8,3,18,0,0);
+        Date tBJuIni1 = new Date(122,8,4,8,0,0);
+        Date tBJuFin1 = new Date(122,8,4,12,0,0); 
+        Date tBJuIni2 = new Date(122,8,4,14,0,0);
+        Date tBJuFin2 = new Date(122,8,4,18,0,0);
+        Date tBViIni1 = new Date(122,8,5,8,0,0);
+        Date tBViFin1 = new Date(122,8,5,12,0,0); 
+        Date tBViIni2 = new Date(122,8,5,14,0,0);
+        Date tBViFin2 = new Date(122,8,5,18,0,0); 
        
         Turno turnoBA1 = new Turno(fechaGenTodosTurnos,"Lunes",tBLuIni1,tBLuFin1,cETReser);
         Turno turnoBB1 = new Turno(fechaGenTodosTurnos,"Martes",tBMaIni1,tBMaFin1,cETDispo);
@@ -232,16 +228,16 @@ public class DsiCU23 {
         turnosRTBalan.add(turnoBE2);
         
        // Turnos para RT tipo Equipo de Computo
-        Date tECLuIni = new Date(122,7,4,8,0,0);
-        Date tECLuFin = new Date(122,7,4,18,0,0); 
-        Date tECMaIni = new Date(122,7,5,8,0,0);
-        Date tECMaFin = new Date(122,7,5,18,0,0); 
-        Date tECMiIni = new Date(122,7,6,8,0,0);
-        Date tECMiFin = new Date(122,7,6,18,0,0); 
-        Date tECJuIni = new Date(122,7,7,8,0,0);
-        Date tECJuFin = new Date(122,7,7,18,0,0); 
-        Date tECViIni = new Date(122,7,8,8,0,0);
-        Date tECViFin = new Date(122,7,8,18,0,0); 
+        Date tECLuIni = new Date(122,8,1,8,0,0);
+        Date tECLuFin = new Date(122,8,1,18,0,0); 
+        Date tECMaIni = new Date(122,8,2,8,0,0);
+        Date tECMaFin = new Date(122,8,2,18,0,0); 
+        Date tECMiIni = new Date(122,8,3,8,0,0);
+        Date tECMiFin = new Date(122,8,3,18,0,0); 
+        Date tECJuIni = new Date(122,8,4,8,0,0);
+        Date tECJuFin = new Date(122,8,4,18,0,0); 
+        Date tECViIni = new Date(122,8,5,8,0,0);
+        Date tECViFin = new Date(122,8,5,18,0,0); 
        
         Turno turnoECA = new Turno(fechaGenTodosTurnos,"Lunes",tECLuIni,tECLuFin,cETDispo);
         Turno turnoECB = new Turno(fechaGenTodosTurnos,"Martes",tECMaIni,tECMaFin,cETPteConf);
@@ -450,23 +446,28 @@ public class DsiCU23 {
         
        /*Creando Personal Cientifico/AsignacionT con Centros */
         ArrayList <AsignacionCientificoDelCI> asignaciones = new ArrayList <>();
-        PersonalCientifico cientifico1 = new PersonalCientifico(1,"Bruce","Wayne",39393939,"brucewayne@gmail.com","iambatman@gmail.com",351351523);
+        Usuario user1 = new Usuario("pcuser1","12345678" );
+        
+        Date fechaSesIni = new Date(122,7,15,0,0);
+        Sesion sesionAc = new Sesion (user1, fechaSesIni, null);
+        
+        PersonalCientifico cientifico1 = new PersonalCientifico(1,"Bruce","Wayne",39393939,"brucewayne@gmail.com","iambatman@gmail.com",351351523, user1);
         AsignacionCientificoDelCI asignacion1 = new AsignacionCientificoDelCI(desde,null,cientifico1);
         asignaciones.add(asignacion1);       
         centroSern.setAsignacionCientifico(asignaciones);
         
         /*Otro Cientifico asociado a sus centro NASA*/
-        ArrayList <AsignacionCientificoDelCI> asignaciones2 = new ArrayList <>();
-        PersonalCientifico cientifico2 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
-        AsignacionCientificoDelCI asignacion2 = new AsignacionCientificoDelCI(desde,null,cientifico2);
-        asignaciones2.add(asignacion2);       
-        centroNasa.setAsignacionCientifico(asignaciones2);
+//        ArrayList <AsignacionCientificoDelCI> asignaciones2 = new ArrayList <>();
+//        PersonalCientifico cientifico2 = new PersonalCientifico(4,"Selina","Kyle",35395439,"selinekyle@gmail.com","iamcatwomen@gmail.com",35135423);
+//        AsignacionCientificoDelCI asignacion2 = new AsignacionCientificoDelCI(desde,null,cientifico2);
+//        asignaciones2.add(asignacion2);       
+//        centroNasa.setAsignacionCientifico(asignaciones2);
         
         /*Otro Cientifico asociado a sus centro SPACE X*/
-        ArrayList <AsignacionCientificoDelCI> asignaciones3 = new ArrayList <>();
-        PersonalCientifico cientifico3 = new PersonalCientifico(3,"Thomas","Wayne",31394839,"thomaswayne@gmail.com","iamjoker@gmail.com",35145823);
-        AsignacionCientificoDelCI asignacion3 = new AsignacionCientificoDelCI(desde,null,cientifico3);
-        asignaciones3.add(asignacion3);       
+//        ArrayList <AsignacionCientificoDelCI> asignaciones3 = new ArrayList <>();
+//        PersonalCientifico cientifico3 = new PersonalCientifico(3,"Thomas","Wayne",31394839,"thomaswayne@gmail.com","iamjoker@gmail.com",35145823);
+//        AsignacionCientificoDelCI asignacion3 = new AsignacionCientificoDelCI(desde,null,cientifico3);
+//        asignaciones3.add(asignacion3);       
       
         /*---------------------------------------------------------------------------------------------------------------------------------------------*/
         /*Se crea la pantalla*/
@@ -475,79 +476,7 @@ public class DsiCU23 {
         /*Se crea el gestor y se le setean los tipos de recursos que conforman su relacion*/
         GestorRegistrarReservaTurnoDeRT gestor = new GestorRegistrarReservaTurnoDeRT();  
         
-        /*Setteos de datos necesarios hasta que se tenga una base de datos que los cargue directamente*/
-        gestor.setTiposDeRecursosTecnologicos(arrayTipos);
-        gestor.setRecursosTecnologicos(rec);
-        gestor.setEstados(estados);
-        
-        /*Inicia el Caso de Uso*/
-        /*tomarOpcionReservarTurnoDeRecursoTecnologico()*/
-        while(pantalla.getBtnOpcionReservarTurnoDeRT() == 0){
-            pantalla.habilitarPantalla();
-        }
-    
-        if(pantalla.getBtnOpcionReservarTurnoDeRT() == 1){
-            
-            /*DEVUELVE UN ARRAY QUE CONTIENE TODOS LOS TIPOS DE RECURSO POSIBLES*/
-            ArrayList <String> cmbTiposDeRecursos = gestor.opcionReservaTurnoDeRT(pantalla.getBtnOpcionReservarTurnoDeRT());
-            
-            /*array que contendra los recursos de tipo elegido*/
-            ArrayList<RecursoTecnologico> recursos = new ArrayList <>();  
-            /*Seteo en la pantalla los tipos de recursos y llamo a la interfaz principal mandandole los tipos de recursos para que los pueda cargar*/
-            pantalla.setCmbTiposDeRecursos(cmbTiposDeRecursos);
-            
-            /*Se muestra los tipos de RT*/            
-            pantalla.mostrarTiposDeRecursos();
-                
-            /*Se manda al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/            
-            recursos = gestor.buscarRTDeTipoSeleccionado(pantalla.getTipoRecursoSeleccionado());
-            
-            /*LE PASA LOS RECURSOS A LA PANTALLA*/
-            pantalla.setListaRT(recursos);
-            
-            /*Se busca y obtiene los datos de los recursos*/
-            ArrayList<RecursoTecnologico> recursosAll = gestor.buscarInformacionRecursosTecnologicos(recursos);
-          
-            /*agruparRTPorCI() setea todos los centros que existen en un array list*/
-            pantalla.setCentrosInvestigacion(centrosArray);                             
-            
-            /*Lleva los recursos a la pantalla para que los pueda mostrar por centro de investigacion*/
-            pantalla.mostrarRTAgrupados(recursosAll);
-            
-            /*tomarRecursoTecnologicoSeleccionado()*/
-            gestor.setRecursoTecnologicoSeleccionado(pantalla.getRecursoSeleccionado());
-            
-            /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/ 
-            gestor.setUsuarioLogueado(cientifico1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
-            boolean estaLogueado = gestor.buscarUsuarioLogueado(cientifico1);
-                      
-            /*VERIFICA QUE EL CIENTIFICO QUE LE MANDAS ES DEL MISMO CENTRO QUE EL RECURSO SELECCIONADO Y SI NO LO ES AVISA POR CONSOLA Y TERMINA TODO*/
-            String correoInstitucionalCientifico = gestor.verificarCIDeCientifico(gestor.getUsuarioLogueado());
- 
-            /*Obtiene la hora actual del sistema*/
-            Date horaActual = gestor.obtenerFechaYHoraActual();
-            gestor.setFechaActual(horaActual);
-            
-            /*se obtiene turnos del RT*/
-            gestor.obtenerTurnosDelRTSeleccionado();
-            
-            /*solicitarSeleccionDeTurno() y tomarTurnoSeleccionado()*/
-            while(pantalla.getTurnoSeleccionado() == null){
-                pantalla.mostrarTurnos(gestor.getTurnoDelRT(),horaActual);
-            }
-            
-            //mostrarDeNotificacio() y solicitarOpcionDeNotificacio() lo hace por checkbox en pantalla
-            
-            //solicitarConfirmacionReservaDeTurno() y tomatConfirmacionDeReservaDeTurno() lo hace con el boton Confrmar
-            
-            //Realizar reserva
-            gestor.reservarTurnoDeRT();
-            
-            //mostrarTurnoYRecursoSeleccionado()
-            pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(gestor.getEstReservado(),pantalla.getTurnoSeleccionado(),gestor.getFechaActual());
-            
-            //enviar notificacion por mail
-            gestor.generarNotificacionPorMail(correoInstitucionalCientifico,pantalla);                   
-        }
+        // se pasala pantalla y los objetos necesarios creados para el CU23
+        gestor.tomarOpcionReservarTurnoDeRecursoTecnologico(pantalla, arrayTipos, rec, estados, centrosArray, sesionAc ); 
     }
 }
