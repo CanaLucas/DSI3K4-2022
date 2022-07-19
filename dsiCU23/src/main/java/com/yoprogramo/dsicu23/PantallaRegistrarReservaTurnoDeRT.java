@@ -110,8 +110,8 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         btnOpcionReservar.addActionListener(click);  
     }
         
-    public void mostrarTiposDeRecursos() throws InterruptedException{ 
-             
+    public void mostrarTiposDeRecursos() throws InterruptedException //(6)
+    {          
         this.interfazSeleccionRT.setBounds(300,150, 800, 700);
         this.interfazSeleccionRT.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.interfazSeleccionRT.setVisible(true); 
@@ -122,15 +122,15 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         }
     }
     
-    //solicitarSeleccionTipoDeRecurso()(7)
-    public void solicitarSeleccionTipoDeRecurso() {
+    public void solicitarSeleccionTipoDeRecurso()  //(7)
+    {
         while(this.getTipoRecursoSeleccionado() == null){
             this.tomarSeleccionDeTipoDeRecurso();
         } 
     }
     
-    //tomarSeleccionDeTipoDeRecurso() y(8) 
-    public void tomarSeleccionDeTipoDeRecurso(){
+    public void tomarSeleccionDeTipoDeRecurso()//(8)
+    {
         ActionListener busquedaTipo = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

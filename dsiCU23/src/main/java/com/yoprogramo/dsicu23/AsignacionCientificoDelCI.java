@@ -47,8 +47,9 @@ public class AsignacionCientificoDelCI {
     public String esCientificoActivo(Usuario a){
           
         /*Verifica que el cientifico siga en el centro ya que no tiene una fecha hasta*/  
-        if(this.getFechaHasta() == null && personalCientifico.esUsuarioLogueado(a)==true){
-            return personalCientifico.getCorreoElectronicoInstitucional();
+        if(this.getFechaHasta() == null && personalCientifico.esUsuarioLogueado(a)==true) //39
+        {
+            return personalCientifico.getCorreoElectronicoInstitucional(); //40
         }
         return null;
     }

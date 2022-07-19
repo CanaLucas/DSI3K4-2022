@@ -134,9 +134,9 @@ public class RecursoTecnologico {
         
         /* Se recorren todos los cambios de estado que tenga el recurso y encuentro el actual sabiendo q no tiene fecha hasta*/
         for(int i = 0; i < this.cambioEstado.size();i++){
-            /*esUltimoCambioDeEstado() (13) */
+            /*(13) */
             if (this.cambioEstado.get(i).esUltimoCambioEstadoRT()== true){
-                //esReservable() (14)
+                // (14)
                 if(this.cambioEstado.get(i).getEstado().esReservable() == true){
                    return true;
                 }   
@@ -150,7 +150,7 @@ public class RecursoTecnologico {
         for(int i = 0; i < this.cambioEstado.size();i++){
             
             if(this.cambioEstado.get(i).esUltimoCambioEstadoRT()){
-                return this.cambioEstado.get(i); ///(23) 
+                return this.cambioEstado.get(i); ///(23) revisar
             }
         }
         return null;
@@ -160,8 +160,8 @@ public class RecursoTecnologico {
         /*Se muestra la info para el RT*/      
         this.getNumeroRT(); //(17)
         this.miModeloYMarca(); //(18)
-        this.ultimoCambioEstado();// (22)
-        this.conocerCentroDeInvestigacion();
+        this.ultimoCambioEstado();//(22)
+        this.conocerCentroDeInvestigacion();//25
         return this;
     }
     
@@ -175,9 +175,9 @@ public class RecursoTecnologico {
         
         for(int i =0; i< this.turnos.size();i++){
             
-            if(this.turnos.get(i).esDesdeHoraFechaYHoraActual(fechaActual)){
-                
-                Turno a = this.turnos.get(i).mostrarTurno(this.turnos.get(i));
+            if(this.turnos.get(i).esDesdeFechaYHoraActual(fechaActual))//44
+            {    
+                Turno a = this.turnos.get(i).mostrarTurno(this.turnos.get(i));//45
                 turnoRecurso.add(a);
             }
         }
@@ -185,7 +185,7 @@ public class RecursoTecnologico {
     }
 
     public void reservarTurnoSeleccionado(Estado reservado, Turno turnoSeleccionado, Date fechaActual) {
-        turnoSeleccionado.reservar(reservado,fechaActual);
+        turnoSeleccionado.reservar(reservado,fechaActual);//64
     }
     
     public void miModeloYMarca() {
@@ -195,12 +195,12 @@ public class RecursoTecnologico {
 
     public String esCientificoDeMiCI(Usuario user) {
         if (centro.misCientificosActivos(user) != null) {
-            return centro.misCientificosActivos(user);
+            return centro.misCientificosActivos(user); //37
         }
         return null;
     }
     
     public void conocerCentroDeInvestigacion(){
-        this.centro.getNombre();
+        this.centro.getNombre();//26
     }
 }

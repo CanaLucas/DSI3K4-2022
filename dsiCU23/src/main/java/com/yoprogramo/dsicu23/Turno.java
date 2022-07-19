@@ -64,7 +64,7 @@ public class Turno {
     
     // Metodos de la clase que se usa en el CU23
     
-    public boolean esDesdeHoraFechaYHoraActual(Date fechaActual) {
+    public boolean esDesdeFechaYHoraActual(Date fechaActual) {
         /*PREGUNTA SI LA HORA QUE SE LE PASA POR PARAMETRO ES MENOR A LA HORA DE INICIO DEL TURNO*/
         return this.fechaHoraInicio.after(fechaActual);
     }
@@ -73,8 +73,9 @@ public class Turno {
         
         for (int i = 0; i< this.cambioEstadoTurno.size();i++){
             
-            if(this.cambioEstadoTurno.get(i).esUltimoCambioEstadoTurno()){
-                this.cambioEstadoTurno.get(i).getEstado().getNombre();
+            if(this.cambioEstadoTurno.get(i).esUltimoCambioEstadoTurno())//46
+            {
+                this.cambioEstadoTurno.get(i).getEstado().getNombre(); //47
             }   
         }
         return this;
@@ -82,11 +83,11 @@ public class Turno {
 
     public void reservar(Estado reservado, Date fechaActual) {
         
-        CambioEstadoTurno ultimoCE = this.conocerEstadoActual();
+        CambioEstadoTurno ultimoCE = this.conocerEstadoActual();//65
         
         if(ultimoCE != null){
-            ultimoCE.setFechaHoraHasta(fechaActual);
-            this.crearNuevoCambioEstadoTurno(reservado,fechaActual);    
+            ultimoCE.setFechaHoraHasta(fechaActual);//66
+            this.crearNuevoCambioEstadoTurno(reservado,fechaActual);//67    
         }
     }
 
@@ -102,6 +103,6 @@ public class Turno {
     }
 
     public void crearNuevoCambioEstadoTurno(Estado e, Date fechaActual) {
-        CambioEstadoTurno nuevoCmbE = new CambioEstadoTurno(fechaActual,null,e);
+        CambioEstadoTurno nuevoCmbE = new CambioEstadoTurno(fechaActual,null,e);//68
     }
 }

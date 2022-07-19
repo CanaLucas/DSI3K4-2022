@@ -23,6 +23,7 @@ public class GestorRegistrarReservaTurnoDeRT {
     private String notificacionMail;
     private ArrayList <Estado> estados;
     private Sesion actualSesion; 
+    private String correoInstitucionalCientifico;
 
     public GestorRegistrarReservaTurnoDeRT(PantallaRegistrarReservaTurnoDeRT pantalla) {
         this.pantalla = pantalla;
@@ -139,6 +140,7 @@ public class GestorRegistrarReservaTurnoDeRT {
             TipoRecursoTecnologico[] tiposRTs, ArrayList rts, ArrayList estados, ArrayList centrosArray,
             Sesion sesion) throws InterruptedException{ 
         
+        pantalla.setGestor(this);
         setActualSesion(sesion);
         setTiposDeRecursosTecnologicos(tiposRTs);
         setRecursosTecnologicos(rts);
@@ -174,27 +176,25 @@ public class GestorRegistrarReservaTurnoDeRT {
             this.pantalla.setCentrosInvestigacion(centrosArray);                             
             
             /*Lleva los recursos a la pantalla para que los pueda mostrar por centro de investigacion*/
-            this.pantalla.mostrarRTAgrupados(recursosAll); //(26) 27 lo hace la pantalla
+            this.pantalla.mostrarRTAgrupados(recursosAll); // 27 
             
-            /*tomarRecursoTecnologicoSeleccionado()*/ //(31)
+            /*tomarRecursoTecnologicoSeleccionado()*/ //(32)
             setRecursoTecnologicoSeleccionado(this.pantalla.getRecursoSeleccionado());
             
-            /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/ 
-            //setUsuarioLogueado(cientUser1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
-            buscarUsuarioLogueado(); //32
+            /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
+            buscarUsuarioLogueado(); //33
             
-            /*VERIFICA QUE EL CIENTIFICO QUE LE MANDAS ES DEL MISMO CENTRO QUE EL RECURSO SELECCIONADO Y SI NO LO ES AVISA POR CONSOLA Y TERMINA TODO*/
-            String correoInstitucionalCientifico = verificarCIDeCientifico(); //34
+            correoInstitucionalCientifico = verificarCIDeCientifico(); //35 revisa cambiar el nombre a Obtener CorreodeUsuario
  
-            /*Obtiene la hora actual del sistema*/ //40
+            /*Obtiene la hora actual del sistema*/ //41
             setFechaActual(obtenerFechaYHoraActual());
             
             /*se obtiene turnos del RT*/
-            obtenerTurnosDelRTSeleccionado();
+            obtenerTurnosDelRTSeleccionado();//42
             
-            /*solicitarSeleccionDeTurno() y tomarTurnoSeleccionado()*/
+            /*solicitarSeleccionDeTurno() y tomarTurnoSeleccionado()*///48 49
             while(this.pantalla.getTurnoSeleccionado() == null){
-                this.pantalla.mostrarTurnos(getTurnoDelRT(),fechaActual);
+                this.pantalla.mostrarTurnos(getTurnoDelRT(),fechaActual);//50
             }
             
             //mostrarDeNotificacio() y solicitarOpcionDeNotificacio() lo hace por checkbox en pantalla
@@ -202,13 +202,10 @@ public class GestorRegistrarReservaTurnoDeRT {
             //solicitarConfirmacionReservaDeTurno() y tomatConfirmacionDeReservaDeTurno() lo hace con el boton Confrmar
             
             //Realizar reserva
-            reservarTurnoDeRT();
-            
-            //mostrarTurnoYRecursoSeleccionado()
-            this.pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(getEstReservado(),this.pantalla.getTurnoSeleccionado(),getFechaActual());
+            reservarTurnoDeRT();//60
             
             //enviar notificacion por mail
-            generarNotificacionPorMail(correoInstitucionalCientifico);                   
+            generarNotificacionPorMail(correoInstitucionalCientifico); //69                  
         }
     }
     
@@ -242,10 +239,10 @@ public class GestorRegistrarReservaTurnoDeRT {
         ArrayList<RecursoTecnologico> tipoR = new ArrayList<>();
         for(int i = 0; i<this.recursosTecnologicos.size() ; i++){ 
            
-            //esTipoRTSeleccionado()(11) y   obtenerRTReservables()//(12)
-            if(((this.recursosTecnologicos.get(i).esTipoRTSeleccionado(tipo) || tipo.equals("TODOS")) 
-                    && this.recursosTecnologicos.get(i).obtenerRTReservable())){   
-                    tipoR.add(recursosTecnologicos.get(i)); 
+            if(((this.recursosTecnologicos.get(i).esTipoRTSeleccionado(tipo) || tipo.equals("TODOS")) //11
+                && this.recursosTecnologicos.get(i).obtenerRTReservable()))//12
+            {   
+                tipoR.add(recursosTecnologicos.get(i)); 
             }
         }
         
@@ -260,20 +257,19 @@ public class GestorRegistrarReservaTurnoDeRT {
         ArrayList <RecursoTecnologico> recursosDatos = new ArrayList <>();
         
         for(int i = 0; i < recursos.size(); i++){
-            recursosDatos.add(i, recursos.get(i).mostrarRT());  
+            recursosDatos.add(i, recursos.get(i).mostrarRT()); //16
         }
         return recursosDatos;        
     }
     
     public void buscarUsuarioLogueado() { 
-        /*Busca al usuario y obtiene su legajo*/
+        
         setUsuarioLogueado(actualSesion.getUsuario()); //33
     }
-    
-    /*SALTA EL CASO 35 Y 36 Y VA DIRECTO AL CENTRO*/ 
+   
     public String verificarCIDeCientifico() {
         if(recursoTecnologicoSeleccionado.esCientificoDeMiCI(usuarioLogueado) != null){
-            return recursoTecnologicoSeleccionado.esCientificoDeMiCI(usuarioLogueado);
+            return recursoTecnologicoSeleccionado.esCientificoDeMiCI(usuarioLogueado); //36
         }
         return "CIENTIFICO NO PERTENECE AL MISMO CENTRO DEL RECURSO SELECCIONADO";
     }
@@ -285,14 +281,17 @@ public class GestorRegistrarReservaTurnoDeRT {
     }
 
     public void reservarTurnoDeRT() {
-        this.buscarEstadoReservado();
+        this.buscarEstadoReservado();//60
+        this.recursoTecnologicoSeleccionado.reservarTurnoSeleccionado(getEstReservado(),this.pantalla.getTurnoSeleccionado(),getFechaActual());
+            
     }
 
     private void buscarEstadoReservado() {
         
         /*Recorrer la clase estado con todos y preguntar si el string ambito es igual a el atributo ambito*/      
         for(int i = 0; i < this.estados.size(); i++){
-            if(this.estados.get(i).esAmbitoTurno() && this.estados.get(i).esReservado()){
+            if(this.estados.get(i).esAmbitoTurno() && this.estados.get(i).esReservado())//61 y 62
+            {
                 this.setEstReservado(this.estados.get(i));
             }
         }
@@ -300,11 +299,11 @@ public class GestorRegistrarReservaTurnoDeRT {
     
     public ArrayList<Turno> obtenerTurnosDelRTSeleccionado() {
         /*TRAE LOS TURNOS PARA EL RECURSO SELECCIONADO*/
-        this.turnoDelRT = this.recursoTecnologicoSeleccionado.buscarTurnosDesdeFechaYHoraActual(this.fechaActual);
+        this.turnoDelRT = this.recursoTecnologicoSeleccionado.buscarTurnosDesdeFechaYHoraActual(this.fechaActual);//43
         return this.turnoDelRT;    
     }
     
     public void generarNotificacionPorMail(String correoInstitucionalCientifico) {
-        this.pantalla.pantallaConfirmacion(correoInstitucionalCientifico);
+        this.pantalla.pantallaConfirmacion(correoInstitucionalCientifico); //70 enviarMail()
     }
 }
