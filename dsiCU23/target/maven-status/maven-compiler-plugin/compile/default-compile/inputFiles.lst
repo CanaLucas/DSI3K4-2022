@@ -1,14 +1,16 @@
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CentroDeInvestigacion.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CambioEstadoTurno.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\DsiCU23.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Turno.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Estado.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\PersonalCientifico.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\RecursoTecnologico.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\AsignacionCientificoDelCI.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\TipoRecursoTecnologico.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Modelo.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\GestorRegistrarReservaTurnoDeRT.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\PantallaRegistrarReservaTurnoDeRT.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CambioEstadoRT.java
-C:\Users\gasti\Desktop\DSI IMPLEMENTACION\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Marca.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\TipoRecursoTecnologico.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CambioEstadoTurno.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\PersonalCientifico.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Modelo.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\GestorRegistrarReservaTurnoDeRT.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CentroDeInvestigacion.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\DsiCU23.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Turno.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\CambioEstadoRT.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Estado.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Marca.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Sesion.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\Usuario.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\RecursoTecnologico.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\PantallaRegistrarReservaTurnoDeRT.java
+D:\Programacion\Proyectos\PPAI\DSI_2022_CU23\DSI3K4-2022\dsiCU23\src\main\java\com\yoprogramo\dsicu23\AsignacionCientificoDelCI.java
