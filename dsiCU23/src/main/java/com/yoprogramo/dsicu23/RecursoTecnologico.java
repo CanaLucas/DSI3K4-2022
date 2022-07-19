@@ -135,14 +135,12 @@ public class RecursoTecnologico {
         /* Se recorren todos los cambios de estado que tenga el recurso y encuentro el actual sabiendo q no tiene fecha hasta*/
         for(int i = 0; i < this.cambioEstado.size();i++){
             /*esUltimoCambioDeEstado() (13) */
-           if (this.cambioEstado.get(i).esUltimoCambioEstadoRT()== true)
-           {
-               //esReservable() (14)
-               if(this.cambioEstado.get(i).getEstado().esReservable() == true)
-               {
+            if (this.cambioEstado.get(i).esUltimoCambioEstadoRT()== true){
+                //esReservable() (14)
+                if(this.cambioEstado.get(i).getEstado().esReservable() == true){
                    return true;
                 }   
-           }
+            }
         }
         return false;
     }       
@@ -163,7 +161,7 @@ public class RecursoTecnologico {
         this.getNumeroRT(); //(17)
         this.miModeloYMarca(); //(18)
         this.ultimoCambioEstado();// (22)
-        this.getCentro();
+        this.conocerCentroDeInvestigacion();
         return this;
     }
     
@@ -200,5 +198,9 @@ public class RecursoTecnologico {
             return centro.misCientificosActivos(user);
         }
         return null;
+    }
+    
+    public void conocerCentroDeInvestigacion(){
+        this.centro.getNombre();
     }
 }
