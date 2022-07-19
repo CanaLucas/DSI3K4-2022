@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class GestorRegistrarReservaTurnoDeRT {
+    private PantallaRegistrarReservaTurnoDeRT pantalla;
     private int btnOpcionReservarTurnoDeRT;
     private TipoRecursoTecnologico[] tiposDeRecursosTecnologicos;
     private ArrayList <String> cmbTiposDeRecursos;
@@ -23,6 +24,10 @@ public class GestorRegistrarReservaTurnoDeRT {
     private ArrayList <Estado> estados;
     private Sesion actualSesion; 
 
+    public GestorRegistrarReservaTurnoDeRT(PantallaRegistrarReservaTurnoDeRT pantalla) {
+        this.pantalla = pantalla;
+    }
+
     /*Constructor de la clase*/
     public ArrayList<Estado> getEstados() {
         return estados;
@@ -36,7 +41,7 @@ public class GestorRegistrarReservaTurnoDeRT {
     public void setActualSesion(Sesion actualSesion) {
         this.actualSesion = actualSesion;
     }
-
+    
     public void setEstados(ArrayList<Estado> estados) {
         this.estados = estados;
     }
@@ -128,17 +133,9 @@ public class GestorRegistrarReservaTurnoDeRT {
         this.notificacionMail = notificacionMail;
     }
 
-    public ArrayList<String> getCmbTiposDeRecursos() {
-        return cmbTiposDeRecursos;
-    }
-
-    public void setCmbTiposDeRecursos(ArrayList<String> cmbTiposDeRecursos) {
-        this.cmbTiposDeRecursos = cmbTiposDeRecursos;
-    }
-
     // Metodos de la clase que se usa en el CU23
     /*Inicia el Caso de Uso (1)*/ 
-    public void tomarOpcionReservarTurnoDeRecursoTecnologico(PantallaRegistrarReservaTurnoDeRT pantalla, 
+    public void tomarOpcionReservarTurnoDeRecursoTecnologico( 
             TipoRecursoTecnologico[] tiposRTs, ArrayList rts, ArrayList estados, ArrayList centrosArray,
             Sesion sesion) throws InterruptedException{ 
         
@@ -147,40 +144,40 @@ public class GestorRegistrarReservaTurnoDeRT {
         setRecursosTecnologicos(rts);
         setEstados(estados);
 
-        while(pantalla.getBtnOpcionReservarTurnoDeRT() == 0)
+        while(this.pantalla.getBtnOpcionReservarTurnoDeRT() == 0)
         {
             //(2)
-            pantalla.habilitarPantalla();
+            this.pantalla.habilitarPantalla();
         }
-        if(pantalla.getBtnOpcionReservarTurnoDeRT() == 1){
+        if(this.pantalla.getBtnOpcionReservarTurnoDeRT() == 1){
             
             /*DEVUELVE UN ARRAY QUE CONTIENE TODOS LOS TIPOS DE RECURSO POSIBLES*/
             //(3)
-            cmbTiposDeRecursos = opcionReservaTurnoDeRT(pantalla.getBtnOpcionReservarTurnoDeRT());
-              
-            /*Seteo en la pantalla los tipos de recursos y llamo a la interfaz principal mandandole los tipos de recursos para que los pueda cargar*/
-            pantalla.setCmbTiposDeRecursos(cmbTiposDeRecursos);
+            this.opcionReservaTurnoDeRT(this.pantalla.getBtnOpcionReservarTurnoDeRT());
  
             /*Se muestra los tipos de RT*/ //(6)
-            pantalla.mostrarTiposDeRecursos();
+            this.pantalla.mostrarTiposDeRecursos();
+            
+            //(7)
+            this.pantalla.solicitarSeleccionTipoDeRecurso();
                 
             /*Se manda al gestor para que pueda obtener todos los recursos con el tipo pasado por parametro*/            
-            recursosTecnologicos = buscarRTDeTipoSeleccionado(pantalla.getTipoRecursoSeleccionado()); //(10)
+            recursosTecnologicos = buscarRTDeTipoSeleccionado(this.getTipoRecursoSeleccionado()); //(10)
             
-            /*LE PASA LOS RECURSOS A LA PANTALLA*/
-            pantalla.setListaRT(recursosTecnologicos);
+            /*LE PASA LOS RECURSOS A LA PANTALLA*/ /////////////////////////RAAARO///////////////////////////////////////
+            this.pantalla.setListaRT(recursosTecnologicos);
             
             /*Se busca y obtiene los datos de los recursos*/ //(15)
             ArrayList<RecursoTecnologico> recursosAll = buscarInformacionRecursosTecnologicos(recursosTecnologicos);
           
             /*agruparRTPorCI() setea todos los centros que existen en un array list*/
-            pantalla.setCentrosInvestigacion(centrosArray);                             
+            this.pantalla.setCentrosInvestigacion(centrosArray);                             
             
             /*Lleva los recursos a la pantalla para que los pueda mostrar por centro de investigacion*/
-            pantalla.mostrarRTAgrupados(recursosAll); //(26) 27 lo hace la pantalla
+            this.pantalla.mostrarRTAgrupados(recursosAll); //(26) 27 lo hace la pantalla
             
             /*tomarRecursoTecnologicoSeleccionado()*/ //(31)
-            setRecursoTecnologicoSeleccionado(pantalla.getRecursoSeleccionado());
+            setRecursoTecnologicoSeleccionado(this.pantalla.getRecursoSeleccionado());
             
             /*ACA SE DEBERIA VER EL TEMA DE LA SESION*/ 
             //setUsuarioLogueado(cientUser1); /*CIENTIFICO 1 SERN,CIENTIFICO 2 NASA, CIENTIFICO 3 SPACE X  CAMBIARLO PARA PROBAR*/
@@ -196,8 +193,8 @@ public class GestorRegistrarReservaTurnoDeRT {
             obtenerTurnosDelRTSeleccionado();
             
             /*solicitarSeleccionDeTurno() y tomarTurnoSeleccionado()*/
-            while(pantalla.getTurnoSeleccionado() == null){
-                pantalla.mostrarTurnos(getTurnoDelRT(),fechaActual);
+            while(this.pantalla.getTurnoSeleccionado() == null){
+                this.pantalla.mostrarTurnos(getTurnoDelRT(),fechaActual);
             }
             
             //mostrarDeNotificacio() y solicitarOpcionDeNotificacio() lo hace por checkbox en pantalla
@@ -208,10 +205,10 @@ public class GestorRegistrarReservaTurnoDeRT {
             reservarTurnoDeRT();
             
             //mostrarTurnoYRecursoSeleccionado()
-            pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(getEstReservado(),pantalla.getTurnoSeleccionado(),getFechaActual());
+            this.pantalla.getRecursoSeleccionado().reservarTurnoSeleccionado(getEstReservado(),this.pantalla.getTurnoSeleccionado(),getFechaActual());
             
             //enviar notificacion por mail
-            generarNotificacionPorMail(correoInstitucionalCientifico,pantalla);                   
+            generarNotificacionPorMail(correoInstitucionalCientifico);                   
         }
     }
     
@@ -232,7 +229,12 @@ public class GestorRegistrarReservaTurnoDeRT {
             //(5)
             a.add(i,tiposDeRecursosTecnologicos[i].getNombre());         
         }        
-        this.setCmbTiposDeRecursos(a);
+        this.pantalla.setCmbTiposDeRecursos(a);
+    }
+    
+    // (9)
+    public void tomarTipoDeRecursoSeleccionado(String tipoDeRecursoSeleccionado){
+        this.setTipoRecursoSeleccionado(tipoDeRecursoSeleccionado);
     }
     
     public ArrayList<RecursoTecnologico> buscarRTDeTipoSeleccionado(String tipo) {
@@ -302,7 +304,7 @@ public class GestorRegistrarReservaTurnoDeRT {
         return this.turnoDelRT;    
     }
     
-    public void generarNotificacionPorMail(String correoInstitucionalCientifico, PantallaRegistrarReservaTurnoDeRT pantalla) {
-        pantalla.pantallaConfirmacion(correoInstitucionalCientifico);
+    public void generarNotificacionPorMail(String correoInstitucionalCientifico) {
+        this.pantalla.pantallaConfirmacion(correoInstitucionalCientifico);
     }
 }
