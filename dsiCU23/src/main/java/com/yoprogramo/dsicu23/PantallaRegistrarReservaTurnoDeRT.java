@@ -14,6 +14,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
+    private GestorRegistrarReservaTurnoDeRT gestor;
     private int btnOpcionReservarTurnoDeRT;
     private ArrayList <String> cmbTiposDeRecursos;
     private String tipoRecursoSeleccionado; 
@@ -28,6 +29,10 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    
+    public void setGestor(GestorRegistrarReservaTurnoDeRT gestor) {
+        this.gestor = gestor;
     }
     
     public ArrayList<CentroDeInvestigacion> getCentrosInvestigacion() {    
@@ -115,23 +120,27 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         for(int i = 0; i < this.getCmbTiposDeRecursos().size();i++){
             cmbTiposRecursos.addItem(this.getCmbTiposDeRecursos().get(i));
         }
-              
-        while(this.getTipoRecursoSeleccionado() == null){
-            ActionListener busquedaTipo = new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(cmbTiposRecursos.getSelectedItem() != null){
-                        tipoRecursoSeleccionado = cmbTiposRecursos.getSelectedItem().toString();
-                    }
-                }
-            };
-            this.busquedaTipoRT.addActionListener(busquedaTipo); 
-        }   
     }
     
-    /*solicitarSeleccionTipoDeRecurso() y  tomarSeleccionDeTipoDeRecurso*///(7)y(8)
-    public void solicitarSeleccionTipoDeRecurso(String a) {
-        this.setTipoRecursoSeleccionado(a);    
+    //solicitarSeleccionTipoDeRecurso()(7)
+    public void solicitarSeleccionTipoDeRecurso() {
+        while(this.getTipoRecursoSeleccionado() == null){
+            this.tomarSeleccionDeTipoDeRecurso();
+        } 
+    }
+    
+    //tomarSeleccionDeTipoDeRecurso() y(8) 
+    public void tomarSeleccionDeTipoDeRecurso(){
+        ActionListener busquedaTipo = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(cmbTiposRecursos.getSelectedItem() != null){
+                    tipoRecursoSeleccionado = cmbTiposRecursos.getSelectedItem().toString();
+                }
+            }
+        };
+        this.busquedaTipoRT.addActionListener(busquedaTipo);
+        this.gestor.tomarTipoDeRecursoSeleccionado(tipoRecursoSeleccionado); //9
     }
     
     public RecursoTecnologico mostrarRTAgrupados(ArrayList<RecursoTecnologico> recursosAll) throws InterruptedException {

@@ -328,9 +328,6 @@
     <Container class="javax.swing.JFrame" name="pantallaConfirmacion">
       <Properties>
         <Property name="defaultCloseOperation" type="int" value="3"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[800, 800]"/>
-        </Property>
       </Properties>
 
       <Layout>
