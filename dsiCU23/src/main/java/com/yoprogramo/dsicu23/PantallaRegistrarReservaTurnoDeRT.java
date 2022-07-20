@@ -125,11 +125,11 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
     public void solicitarSeleccionTipoDeRecurso()  //(7)
     {
         while(this.getTipoRecursoSeleccionado() == null){
-            this.tomarSeleccionDeTipoDeRecurso();
+            this.tomarSeleccionDeTipoDeRecurso();//8
         } 
     }
     
-    public void tomarSeleccionDeTipoDeRecurso()//(8)
+    public void tomarSeleccionDeTipoDeRecurso()
     {
         ActionListener busquedaTipo = new ActionListener() {
             @Override
