@@ -212,7 +212,8 @@ public class CentroDeInvestigacion {
         
         for(int i =0; i < this.asignacionCientifico.size();i++){
             
-            if(this.asignacionCientifico.get(i).esCientificoActivo(a) != null){
+            if(this.asignacionCientifico.get(i).esCientificoActivo(a) != null)//37
+            {
                 return this.asignacionCientifico.get(i).esCientificoActivo(a);
             }
             break;

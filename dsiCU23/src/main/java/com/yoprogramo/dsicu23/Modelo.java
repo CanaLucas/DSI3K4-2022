@@ -32,6 +32,6 @@ public class Modelo {
     
     // Metodos de la clase que se usa en el CU23
     public String conocerMarca(){
-        return this.marca.getNombre(); //(21)
+        return this.marca.getNombre(); //21
     }  
 }

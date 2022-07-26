@@ -83,11 +83,11 @@ public class Turno {
 
     public void reservar(Estado reservado, Date fechaActual) {
         
-        CambioEstadoTurno ultimoCE = this.conocerEstadoActual();//65
+        CambioEstadoTurno ultimoCE = this.conocerEstadoActual();//64
         
         if(ultimoCE != null){
-            ultimoCE.setFechaHoraHasta(fechaActual);//66
-            this.crearNuevoCambioEstadoTurno(reservado,fechaActual);//67    
+            ultimoCE.setFechaHoraHasta(fechaActual);//65
+            this.crearNuevoCambioEstadoTurno(reservado,fechaActual);//66    
         }
     }
 
@@ -103,6 +103,6 @@ public class Turno {
     }
 
     public void crearNuevoCambioEstadoTurno(Estado e, Date fechaActual) {
-        CambioEstadoTurno nuevoCmbE = new CambioEstadoTurno(fechaActual,null,e);//68
+        CambioEstadoTurno nuevoCmbE = new CambioEstadoTurno(fechaActual,null,e);//67
     }
 }

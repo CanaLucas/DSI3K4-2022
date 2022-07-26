@@ -477,6 +477,6 @@ public class DsiCU23 {
         GestorRegistrarReservaTurnoDeRT gestor = new GestorRegistrarReservaTurnoDeRT(pantalla);
         
         // se pasala pantalla y los objetos necesarios creados para el CU23
-        gestor.tomarOpcionReservarTurnoDeRecursoTecnologico(arrayTipos, rec, estados, centrosArray, sesionAc ); 
+        gestor.tomarOpcionReservarTurnoDeRecursoTecnologico(arrayTipos, rec, estados, centrosArray, sesionAc ); //1
     }
 }

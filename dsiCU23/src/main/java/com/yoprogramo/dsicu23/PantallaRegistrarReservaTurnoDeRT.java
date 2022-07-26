@@ -143,7 +143,7 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
         this.gestor.tomarTipoDeRecursoSeleccionado(tipoRecursoSeleccionado); //9
     }
     
-    public RecursoTecnologico mostrarRTAgrupados(ArrayList<RecursoTecnologico> recursosAll) throws InterruptedException {
+    public void mostrarRTAgrupados(ArrayList<RecursoTecnologico> recursosAll) throws InterruptedException {
         
         this.setListaRT(recursosAll);
         
@@ -165,8 +165,10 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
                 comboBoxCentros.addItem(this.centrosInvestigacion.get(i).getNombre());    
             }
         }   
+    }
+
+    public void solicitarSeleccionDeRT() {
         
-        /*solicitarSeleccionDeRT()*/ //(28)y(29)y(30)
         while(this.recursoSeleccionado == null){
             ActionListener recursoSeleccionado = new ActionListener() {
                 @Override
@@ -175,7 +177,12 @@ public class PantallaRegistrarReservaTurnoDeRT extends javax.swing.JFrame {
             };
             this.seleccionarRT.addActionListener(recursoSeleccionado);
         }       
-        return this.recursoSeleccionado;
+        
+        this.tomarSeleccionDeRecursoTecnologico();//30
+    }
+     
+    public void tomarSeleccionDeRecursoTecnologico() {
+        this.gestor.tomarRecursoTecnologicoSeleccionado(this.recursoSeleccionado);//31
     }
     
     /*CODIGO QUE TENGA Q VER CON BOTONES DE LA INTERFAZ Y LAS ACCIONES QUE SE EJECUTAN AL PRESIONAR BOTONES*/
